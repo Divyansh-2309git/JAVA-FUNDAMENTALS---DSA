@@ -1,4 +1,4 @@
-package Arrays;
+kpackage Arrays;
 
 public class pairing {
     public static void pairs(int numbers[]){
