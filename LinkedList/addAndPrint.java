@@ -223,17 +223,31 @@ public class addAndPrint {
         return true ; 
         
     }
+    public boolean  isCyclic (){
+        Node slow = head ; 
+        Node fast = head ; 
+        while (fast != null && fast.next != null ){
+            slow = slow.next ; 
+            fast = fast.next.next ; 
+            if(slow == fast ){
+                return true ; 
+            }
+        }
+        return false; 
+    }
+
+    
 
     public static void main(String[] args) {
 
         addAndPrint ll = new addAndPrint();
 
-        ll.addLast(1);
-        ll.addLast(2);
-        ll.addLast(2);
-        ll.addLast(1);
+        ll.head = new Node(1); 
+        ll.head.next = new Node(2); 
+        ll.head.next.next  = new Node(3); 
+        // ll.head.next.next.next = ll.head ; 
 
-        ll.printList();
-        System.out.println(ll.checkPalindrome());
+        
+        System.out.println(ll.isCyclic());
     }
 }
