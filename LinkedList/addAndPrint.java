@@ -111,22 +111,129 @@ public class addAndPrint {
         return val ; 
     }
 
+    public int itrSearrch(int key ){
+        Node temp = head ; 
+        int i = 0 ;
+        while(temp != null ){
+            if(temp.data == key){
+                return i ; 
+            }
+            temp = temp.next ; 
+            i ++ ; 
+        }
+        return -1 ; 
+    }
+    public int helper(Node head , int key){
+        if(head == null){
+            return -1 ; 
+        }
+        if(head.data == key ){
+            return 0 ; 
+        }
+        int indx = helper(head.next , key); 
+
+        if(indx == -1){
+            return -1; 
+        }
+        return indx + 1 ; 
+    }
+    public int recSearch(int key){
+        return helper(head, key); 
+    }
+
+    public void reverse(){
+        Node prev = null ; 
+        Node curr = tail =  head ; 
+        Node next ; 
+
+        while(curr != null ){
+            next = curr.next ; 
+            curr.next = prev ; 
+            prev = curr ; 
+            curr = next ;   
+        }
+
+        head = prev ; 
+
+    }
+
+    public void deleteFromBack(int index){
+        int len = 0 ; 
+        Node temp = head ; 
+        while(temp != null ){
+            len ++ ; 
+            temp = temp.next ; 
+        } 
+
+        if(index == len  ){
+            head = head.next ; 
+            return ; 
+        }
+
+        int i = 1 ; 
+        int toFind = len - index ; 
+        Node prev = head ; 
+        while(i < toFind){
+            prev = prev.next ; 
+            i ++ ; 
+        }
+
+        prev.next = prev.next.next; 
+        return ; 
+        
+
+    }
+    public Node findMid(Node head ){
+        Node slow = head ; 
+        Node fast = head ; 
+        while(fast != null && fast.next != null){
+            slow = slow.next ; 
+            fast = fast.next.next ; 
+        }
+        return slow ; //Slow is the middle node 
+    }
+
+    public boolean checkPalindrome(){
+        if(head == null || head.next == null){
+            return true ; 
+        }
+
+        Node midNode = findMid(head); //Find mid node 
+
+        Node prev = null ; 
+        Node curr = midNode ; 
+        Node next ; 
+        while(curr != null){
+            next = curr.next ; 
+            curr.next = prev ; 
+            prev = curr ; 
+            curr = next ; 
+        }
+
+        Node right = prev ; 
+        Node left = head; 
+
+        while(right != null ){
+            if(left.data != right.data){
+                return false ; 
+            }  
+            left = left.next ;
+            right = right.next ; 
+        }
+        return true ; 
+        
+    }
+
     public static void main(String[] args) {
 
         addAndPrint ll = new addAndPrint();
 
-        ll.addFront(1);
-        ll.addFront(2);
-        ll.addLast(3);
-        ll.addLast(4);
+        ll.addLast(1);
+        ll.addLast(2);
+        ll.addLast(2);
+        ll.addLast(1);
 
         ll.printList();
-
-        ll.addIndex(2, 12);
-        ll.printList();
-        System.out.println(ll.size); 
-        System.out.println(ll.removeFirst());
-        System.out.println(ll.removeLast()); 
-        ll.printList();
+        System.out.println(ll.checkPalindrome());
     }
 }
