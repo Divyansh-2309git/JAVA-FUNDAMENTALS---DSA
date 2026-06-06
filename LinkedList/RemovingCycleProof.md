@@ -1,0 +1,1 @@
+![alt text](image-1.png) = mathematical proof of the linked list 

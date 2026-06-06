@@ -202,12 +202,12 @@ public class addAndPrint {
 
         Node prev = null ; 
         Node curr = midNode ; 
-        Node next ; 
+        Node Next ; 
         while(curr != null){
-            next = curr.next ; 
+            Next = curr.next ; 
             curr.next = prev ; 
             prev = curr ; 
-            curr = next ; 
+            curr = Next ; 
         }
 
         Node right = prev ; 
@@ -220,8 +220,7 @@ public class addAndPrint {
             left = left.next ;
             right = right.next ; 
         }
-        return true ; 
-        
+        return true ;        
     }
     public boolean  isCyclic (){
         Node slow = head ; 
@@ -236,7 +235,45 @@ public class addAndPrint {
         return false; 
     }
 
-    
+    public void removeCycle(){
+        // Detect cycle 
+        Node slow = head ; 
+        Node fast = head ; 
+        boolean cycle = false ; 
+
+        while(fast != null && fast.next != null ){ 
+            slow = slow.next ; 
+            fast = fast.next.next ; 
+            if(slow == fast ){
+                cycle = true ; 
+                break ; 
+            }
+        }
+        if(cycle == false ){
+            return ; 
+        }
+        // Find the meeting point 
+
+        // ! for corner case where slow is already equals to fast 
+
+        slow = head ; 
+        Node prev = null ; 
+
+        if(slow == fast){
+            while(fast.next != slow){
+                fast = fast.next;
+            }
+            fast.next = null;
+            return;
+        }
+        while(slow != fast ){
+            slow = slow.next ; 
+            fast = fast.next ; 
+            prev = fast ; 
+        }
+        // Making the previous.next to null 
+        prev.next = null ; 
+    }
 
     public static void main(String[] args) {
 
@@ -245,9 +282,12 @@ public class addAndPrint {
         ll.head = new Node(1); 
         ll.head.next = new Node(2); 
         ll.head.next.next  = new Node(3); 
-        // ll.head.next.next.next = ll.head ; 
+        ll.head.next.next.next  = new Node(4); 
+        ll.head.next.next.next.next = ll.head ; 
 
         
         System.out.println(ll.isCyclic());
+        ll.removeCycle();
+        System.out.println(ll.isCyclic()); 
     }
 }
