@@ -274,20 +274,42 @@ public class addAndPrint {
         // Making the previous.next to null 
         prev.next = null ; 
     }
+    public void duplicateRemove(){
+        Node prev = null ; 
+        Node curr = head ; 
+        while(curr != null && curr.next != null ){
+            if(prev == null ){
+                prev = curr; 
+                curr = curr.next ; 
+
+            }else{
+                if (curr.data != prev.data ){
+                    prev = curr ; 
+                    curr = curr.next ; 
+                }else{
+                    if(curr.next.next != null){
+
+                    curr.next = prev.next.next;
+                    }else {
+                        curr.next = null ; 
+                    }
+                }
+            }    
+        }
+    }
 
     public static void main(String[] args) {
 
         addAndPrint ll = new addAndPrint();
+        ll.addLast(1);
+        ll.addLast(1);
+        ll.addLast(2);
+        ll.addLast(3);
+        ll.addLast(4);
+        ll.addLast(5);
 
-        ll.head = new Node(1); 
-        ll.head.next = new Node(2); 
-        ll.head.next.next  = new Node(3); 
-        ll.head.next.next.next  = new Node(4); 
-        ll.head.next.next.next.next = ll.head ; 
+        ll.duplicateRemove();
+        ll.printList();
 
-        
-        System.out.println(ll.isCyclic());
-        ll.removeCycle();
-        System.out.println(ll.isCyclic()); 
     }
 }
