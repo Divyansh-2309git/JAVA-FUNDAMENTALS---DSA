@@ -50,33 +50,48 @@ public class solution143{
         }
         return slow ; 
     }
-    public void reverseAfterMidPoint(Node midpoint){
-        Node prev = null ; 
-        Node curr = midpoint ; 
-        Node next ; 
-        while(curr != null ){
-            next = curr.next ; 
+    public void reverse(){
+        Node prev = null ;
+        Node curry= midNode() ; 
+        Node curr = curry.next ; 
+        Node Next ; 
+        while (curr != null ){
+            Next = curr.next ; 
             curr.next = prev ; 
             prev = curr ; 
-            curr = next ;  
+            curr = Next ; 
+
         }
+        Node first = head;
+        Node second = prev;
+
+        while (second != null) {
+            Node temp1 = first.next;
+            Node temp2 = second.next;
+
+            first.next = second;
+            second.next = temp1;
+
+            first = temp1;
+            second = temp2;
+        }
+        
+        
     }
-
-    public void reorderList(){
-        Node midpoint = midNode(); 
-        reverseAfterMidPoint(midpoint); 
-
-
-    }
+    
     public static void main(String args[]){
         solution143 ll = new solution143() ; 
         ll.addLast(1);
         ll.addLast(2);
         ll.addLast(3);
         ll.addLast(4);
+        ll.addLast(5);
         ll.printList();
-        ll.reorderList();
+        ll.reverse();
         ll.printList();
+        
+        // ll.midNode();
+        
     }
 
 }
