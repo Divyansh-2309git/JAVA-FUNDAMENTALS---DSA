@@ -212,6 +212,7 @@ public class addAndPrint {
 
         Node right = prev ; 
         Node left = head; 
+        
 
         while(right != null ){
             if(left.data != right.data){
@@ -302,14 +303,13 @@ public class addAndPrint {
 
         addAndPrint ll = new addAndPrint();
         ll.addLast(1);
-        ll.addLast(1);
+        ll.addLast(3);
+        ll.addLast(2);
         ll.addLast(2);
         ll.addLast(3);
-        ll.addLast(4);
-        ll.addLast(5);
+        ll.addLast(1);
+        
 
-        ll.duplicateRemove();
-        ll.printList();
-
+        System.out.println(ll.checkPalindrome());
     }
 }

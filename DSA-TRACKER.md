@@ -2,7 +2,8 @@
 Leetcode - question 121 = best time to buy and sell a stock - with hint (Arrays) ; 
 Leetcode - question 53 = find the maximum subarray sum - without hint(Arrays) ; 
 Leetcode - question 26 = remove duplicate from array - without hint (Arrays) ;
-
+Leetocde - question 143 = reorder linked list - with hint of code but did the logic myself ; 
+Leetcode - question 234 = check palindrome - without hint but one typo ; 
 
 
 
