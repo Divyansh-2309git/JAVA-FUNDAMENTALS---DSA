@@ -22,7 +22,6 @@ public class queueReversal{
         reversal(q);
         while(!q.isEmpty()){
             System.out.println(q.remove());
-            
         }
     }
 }
