@@ -12,9 +12,5 @@ public class deque{
         System.out.println(dq); 
         dq.removeLast(); 
         System.out.println(dq);
-
-
-
-
     }
 }
