@@ -1,42 +1,44 @@
-# Java Fundamentals & Data Structures Mastery
+# 🚀 Java Fundamentals & Data Structures Mastery
 
-Welcome to **Java Fundamentals & Data Structures Mastery** — a clean, structured, and beginner-friendly learning repository designed to take you from core Java syntax to advanced Data Structures and Algorithms (DSA).
+![Java Version](https://img.shields.io/badge/Java-17%2B-orange?style=for-the-badge&logo=openjdk)
+![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
+![Code Style](https://img.shields.io/badge/Code%20Style-Clean%20Java-green?style=for-the-badge&logo=java)
+![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen?style=for-the-badge)
 
----
-
-## 🎯 Repository Purpose
-
-This repository serves as a hands-on, practical code hub for learning Java programming. Every program is self-contained with educational header documentation, step-by-step logic, and comments explaining **why** specific approaches are chosen, common beginner mistakes, and algorithm nuances.
-
----
-
-## 💡 What You Will Learn
-
-- Core Java syntax, operators, control flow, loops, and functions.
-- Bitwise manipulation techniques and binary arithmetic.
-- Object-Oriented Programming (OOP) principles (Encapsulation, Inheritance, Polymorphism, Abstraction).
-- Fundamental data structures: Arrays, 2D Matrices, ArrayLists, Strings, Linked Lists, Stacks, Queues, Binary Trees, Binary Search Trees, and Heaps.
-- Classical algorithms: Searching (Linear, Binary), Sorting (Bubble, Selection, Insertion, Counting, Merge Sort), Recursion, Backtracking, and Greedy Algorithms.
-- Problem-solving skills using popular LeetCode questions.
+Welcome to **Java Fundamentals & Data Structures Mastery** — a clean, structured, and beginner-friendly repository designed to take developers from core Java syntax to advanced Data Structures and Algorithms (DSA).
 
 ---
 
-## 🛠️ Technologies Used & Requirements
+## 🎯 Repository Goals & Description
 
-- **Language**: Java
-- **Target Java Version**: Java 17+ (Compatible with Java 21 / 26)
-- **Compiler**: OpenJDK `javac` / JDK
-- **Build Tool**: Native Java CLI (No external build tools required)
+This repository serves as a practical, self-contained learning hub for mastering Java programming and Data Structures & Algorithms. Every program includes standardized top-level documentation headers, step-by-step logic, complexity analysis, and educational comments explaining **why** specific approaches were chosen.
+
+### Who This Repository Is For
+- **Beginners**: Learning fundamental Java syntax, loops, functions, and OOP principles.
+- **Intermediate Developers**: Mastering classic data structures (Arrays, Linked Lists, Stacks, Queues, Trees, Heaps).
+- **Interview Candidates**: Solving curated LeetCode problems and revising core DSA concepts.
 
 ---
 
-## 📁 Repository Folder Structure
+## 📊 Repository Statistics
+
+| Metric | Quantity |
+| :--- | :--- |
+| **Total Topic Modules** | 18 Specialized Folders |
+| **Total Java Programs** | 142 Fully Documented Files |
+| **Total Lines of Java Code** | ~6,000 Lines |
+| **Topic README Guides** | 20 Dedicated Guides |
+| **License** | MIT Open Source |
+
+---
+
+## 📁 Folder Structure
 
 ```text
 Java-Fundamentals-DSA/
-├── Basics/                 # Core Java fundamentals (variables, loops, conditions, functions)
-├── BitManipulation/        # Bitwise operations (get/set/clear bit, even/odd, powers of 2)
-├── Strings/                # String manipulation, StringBuilder, comparison, palindrome
+├── Basics/                 # Core Java syntax, loops, conditions, functions
+├── BitManipulation/        # Bitwise operators, bit masking, binary arithmetic
+├── Strings/                # String immutability, StringBuilder, palindrome
 ├── Arrays/                 # 1D Arrays, Searching, Subarrays, Trapping Rainwater, Stocks
 │   ├── 2D_Arrays/          # 2D Matrices, Spiral Matrix, Diagonal Sum, Matrix Search
 │   └── Sorting/            # Bubble, Selection, Counting, and Inbuilt Sorting
@@ -49,12 +51,12 @@ Java-Fundamentals-DSA/
 ├── Stacks/                 # Stacks via ArrayList, LinkedList, JCF; Histogram, Parentheses
 ├── Queue/                  # Queues, Deque, Queue using Stacks, Interleaving, Reversal
 ├── Greedy/                 # Greedy Algorithms (Activity Selection)
-├── BinaryTree/             # Tree Creation, Height, Diameter, Traversal
-├── BinarySearchTree/       # BST Insertion, Search, Largest BST in Binary Tree
+├── BinaryTree/             # Tree Creation, Height, Metrics, Traversal
+├── BinarySearchTree/       # BST Creation, Search, Deletion, Range Queries, Largest BST
 ├── Heaps/                  # Priority Queue, Custom Object Priority Queue, Heap Insertion
-├── Leetcode/               # Curated LeetCode problem solutions with detailed explanations
+├── Leetcode/               # 20 Curated LeetCode problem solutions with detailed header docs
 ├── Practice/               # Additional practice problems organized by topic
-├── CONTRIBUTING.md         # Contribution guidelines
+├── CONTRIBUTING.md         # Contribution guidelines and coding standards
 ├── LICENSE                 # MIT License
 └── README.md               # Main repository documentation
 ```
@@ -63,78 +65,98 @@ Java-Fundamentals-DSA/
 
 ## 📚 Topics Covered
 
-| Topic | Key Concepts Covered |
-| :--- | :--- |
-| **Basics** | Conditional statements, loops (`for`, `while`), functions, method overloading, prime check |
-| **Bit Manipulation** | Binary operators (`AND`, `OR`, `XOR`, `NOT`), bit masking, checking odd/even |
-| **Strings** | String immutability, `char` manipulation, `StringBuilder`, palindrome, sub-strings |
-| **Arrays & 2D Arrays** | Subarrays, Kadane's Algorithm, Trapping Rainwater, Buy/Sell Stocks, Matrix Search |
-| **Sorting** | Bubble Sort, Selection Sort, Counting Sort, Java Inbuilt `Arrays.sort()` |
-| **ArrayList** | Dynamic sizing, 2D ArrayLists, Two-pointer technique (Container With Most Water, Pair Sum) |
-| **Object-Oriented Programming** | Classes, Objects, Access Modifiers, Constructors (Shallow/Deep Copy), Inheritance |
-| **Recursion & Backtracking** | Base cases, call stack, array backtracking, subset generation |
-| **Divide & Conquer** | Merge Sort algorithm breakdown |
-| **Linear Data Structures** | Linked Lists, Stacks, Queues, Deque, Stack/Queue conversions |
-| **Trees & Heaps** | Binary Trees, Binary Search Trees (BST), Priority Queue, Min/Max Heaps |
-| **LeetCode Problem Set** | Selected standard LeetCode problems (Array, Linked List, Stack, String) |
+| Topic | Primary Module | Key Concepts Covered |
+| :--- | :--- | :--- |
+| **Java Basics** | [Basics/](Basics/) | Conditionals, loops (`for`, `while`), functions, method overloading, prime check |
+| **Bitwise Operations** | [BitManipulation/](BitManipulation/) | Bitwise AND, OR, XOR, NOT, shift operators, bit masking |
+| **String Handling** | [Strings/](Strings/) | String immutability, `char` manipulation, `StringBuilder`, palindrome |
+| **1D & 2D Arrays** | [Arrays/](Arrays/) | Subarrays, Kadane's Algorithm, Trapping Rainwater, Stock Buy/Sell, Spiral Matrix |
+| **Sorting Algorithms** | [Arrays/Sorting/](Arrays/Sorting/) | Bubble Sort, Selection Sort, Counting Sort, `Arrays.sort()` |
+| **Dynamic Arrays** | [ArrayList/](ArrayList/) | Dynamic sizing, 2D ArrayLists, Container With Most Water, Pair Sum |
+| **Object-Oriented Programming** | [OOPS/](OOPS/) | Classes, Objects, Access Modifiers, Constructors (Shallow/Deep Copy), Inheritance |
+| **Recursion & Backtracking** | [RecursionBasics/](RecursionBasics/) | Base cases, call stack, array backtracking, subset generation |
+| **Divide & Conquer** | [DivideAndRule/](DivideAndRule/) | Merge Sort algorithm breakdown |
+| **Linear Data Structures** | [LinkedList/](LinkedList/), [Stacks/](Stacks/), [Queue/](Queue/) | Singly Linked Lists, Stacks, Queues, Deque, Monotonic Stacks, Interleaving |
+| **Hierarchical Data Structures**| [BinaryTree/](BinaryTree/), [BinarySearchTree/](BinarySearchTree/), [Heaps/](Heaps/) | Binary Trees, BSTs, Inorder Successor, Priority Queue, Min/Max Heaps |
+| **LeetCode Practice** | [Leetcode/](Leetcode/) | 20 classic LeetCode solutions across Array, Linked List, Stack, Matrix |
 
 ---
 
 ## ⚡ How to Compile and Run Programs
 
-Navigate to the repository directory in your terminal and compile any Java program using `javac`, then run it with `java`:
+You can compile and run any Java program natively using the Java CLI (`javac` and `java`).
+
+### Step-by-Step Execution Guide:
 
 ```bash
-# Example 1: Running a program from Basics
-javac Basics/calculator.java
-java Basics.calculator
+# 1. Clone the repository
+git clone https://github.com/Divyansh-2309git/My-Data-Java_DSA.git
+cd My-Data-Java_DSA
 
-# Example 2: Running a program from Arrays/Sorting
-javac Arrays/Sorting/bubbleSort.java
-java Arrays.Sorting.bubbleSort
+# 2. Compile a specific program (e.g. Arrays/BinarySearch.java)
+javac Arrays/BinarySearch.java
 
-# Example 3: Running a LeetCode solution
-javac Leetcode/solution01.java
-java Leetcode.solution01
+# 3. Run the compiled program
+java Arrays.BinarySearch
+
+# 4. Compile and run a LeetCode problem solution
+javac Leetcode/Solution01.java
+java Leetcode.Solution01
 ```
 
-*Note: Clean up generated `.class` files using `find . -name "*.class" -delete` (Linux/Mac) or `del /s *.class` (Windows).*
+*Note: You can easily clean generated `.class` files using `find . -name "*.class" -delete`.*
 
 ---
 
-## 🗺️ Learning Roadmap (Beginner → Advanced)
+## 🗺️ Learning Roadmap
 
 ```mermaid
 graph TD
-    A[1. Basics & Control Flow] --> B[2. Functions & Methods]
-    B --> C[3. Arrays & 2D Matrices]
-    C --> D[4. Sorting & Searching]
-    D --> E[5. Strings & Bit Manipulation]
-    E --> F[6. Object-Oriented Programming]
-    F --> G[7. ArrayList & Dynamic Data]
-    G --> H[8. Recursion & Backtracking]
-    H --> I[9. Divide & Conquer]
-    I --> J[10. Linked Lists]
-    J --> K[11. Stacks & Queues]
-    K --> L[12. Trees & BST]
-    L --> M[13. Heaps & Priority Queues]
-    M --> N[14. LeetCode Practice & Advanced DSA]
+    A["1. Basics & Control Flow"] --> B["2. Functions & Methods"]
+    B --> C["3. Arrays & 2D Matrices"]
+    C --> D["4. Sorting & Searching"]
+    D --> E["5. Strings & Bit Manipulation"]
+    E --> F["6. Object-Oriented Programming"]
+    F --> G["7. ArrayList & Dynamic Data"]
+    G --> H["8. Recursion & Backtracking"]
+    H --> I["9. Divide & Conquer"]
+    I --> J["10. Linked Lists"]
+    J --> K["11. Stacks & Queues"]
+    K --> L["12. Binary Trees & BST"]
+    L --> M["13. Heaps & Priority Queues"]
+    M --> N["14. LeetCode Practice & Interview Prep"]
 ```
 
 ---
 
-## 📋 Future Topics Checklist
+## 🤝 Contribution Guide
 
-- [ ] **Hashing** (HashSet, HashMap, Custom Hash Functions, Collision Resolution)
-- [ ] **Tries** (Prefix Trees, Insert, Search, StartsWith)
-- [ ] **Graph Data Structure** (Adjacency List/Matrix, BFS, DFS, Topological Sort)
-- [ ] **Shortest Path Algorithms** (Dijkstra's Algorithm, Bellman-Ford, Floyd-Warshall)
-- [ ] **Minimum Spanning Tree (MST)** (Prim's Algorithm, Kruskal's Algorithm, Disjoint Set Union)
-- [ ] **Dynamic Programming (DP)** (1D DP, 2D DP, Knapsack, Longest Common Subsequence)
-- [ ] **Segment Trees & Fenwick Trees** (Range Queries & Updates)
+Contributions are always welcome! Please check out [CONTRIBUTING.md](CONTRIBUTING.md) for full guidelines on adding new problems or improving existing documentation.
+
+1. Fork the Repository.
+2. Create a Feature Branch (`git checkout -b feature/new-topic`).
+3. Ensure your Java code includes the standard header block and compiles cleanly (`javac`).
+4. Submit a Pull Request.
+
+---
+
+## 🔮 Future Roadmap
+
+- [ ] **Hashing** (HashMap, HashSet, Custom Hash Functions, Collision Resolution)
+- [ ] **Trie Data Structure** (Prefix Tree, Word Search)
+- [ ] **Graph Algorithms** (Adjacency Matrix/List, BFS, DFS, Topological Sort, Dijkstra)
+- [ ] **Dynamic Programming** (1D DP, 2D DP, 0/1 Knapsack, LCS)
+- [ ] **Segment Trees & Disjoint Set Union (DSU)**
 
 ---
 
 ## 📄 License
 
-This repository is licensed under the [MIT License](LICENSE).
+This repository is distributed under the [MIT License](LICENSE).
+
+---
+
+## 📧 Contact & Connect
+
+Developed & Maintained by **Divyansh**  
+GitHub: [@Divyansh-2309git](https://github.com/Divyansh-2309git)
