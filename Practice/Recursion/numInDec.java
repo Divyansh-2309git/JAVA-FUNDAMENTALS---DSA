@@ -1,13 +1,26 @@
-public class numInDec{
+/**
+ * Program Name : numInDec
+ * Topic        : Practice / Recursion
+ * Difficulty   : Beginner
+ * Concepts     : Recursion Base Case, Head Recursion
+ * -------------------------------------------------------------
+ * Description  :
+ * Recursively prints numbers from N down to 1 in decreasing order.
+ */
+public class numInDec {
+
     public static void decreasing(int num) {
-        if (num == 0 ){
-            return ; 
+        if (num == 0) {
+            return;
         }
-        System.out.println(num);
-        decreasing(num - 1 );
+        System.out.print(num + " ");
+        decreasing(num - 1);
     }
+
     public static void main(String[] args) {
-        int num = 4; 
+        int num = 4;
+        System.out.print("Decreasing order: ");
         decreasing(num);
+        System.out.println();
     }
 }

@@ -1,25 +1,32 @@
-
+/**
+ * Program Name : priorityQueue
+ * Topic        : Heaps
+ * Difficulty   : Beginner
+ * Concepts     : PriorityQueue, Min-Heap, Max-Heap, Custom Comparators
+ * -------------------------------------------------------------
+ * Description  :
+ * Demonstrates usage of Java's built-in PriorityQueue (Min-Heap by default)
+ * and reversing priority using Comparator.reverseOrder() (Max-Heap).
+ */
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
-
-// By default the priority queue is in ascending order for the numbers 
-
-public class priorityQueue{
+public class priorityQueue {
     public static void main(String[] args) {
-    PriorityQueue<Integer> pq = new PriorityQueue<>(Comparator.reverseOrder()); //By default the integers are pritoritize in the ascending order 
-    // Pass comparator.reverseOrder() to reverse the priority order 
-    pq.add(1); // O (log n ) for adding something in the priority queue 
-    pq.add(2);        
-    pq.add(3);
-    pq.add(7); 
-    pq.add(5) ; 
+        // PriorityQueue with Comparator.reverseOrder() creates a Max-Heap
+        PriorityQueue<Integer> pq = new PriorityQueue<>(Comparator.reverseOrder());
 
+        pq.add(1); // O(log N)
+        pq.add(2);
+        pq.add(3);
+        pq.add(7);
+        pq.add(5);
 
-    while (!pq.isEmpty()){
-        System.out.println(pq.peek());
-        pq.remove(); // O(log n ) 
-        
-    }        
+        System.out.print("Priority Queue elements in descending order (Max-Heap): ");
+        while (!pq.isEmpty()) {
+            System.out.print(pq.peek() + " ");
+            pq.remove(); // O(log N)
+        }
+        System.out.println();
     }
 }

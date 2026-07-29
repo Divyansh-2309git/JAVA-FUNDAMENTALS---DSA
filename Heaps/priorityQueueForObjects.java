@@ -1,32 +1,44 @@
-
+/**
+ * Program Name : priorityQueueForObjects
+ * Topic        : Heaps
+ * Difficulty   : Intermediate
+ * Concepts     : PriorityQueue with Objects, Comparable Interface, Custom Sorting
+ * -------------------------------------------------------------
+ * Description  :
+ * Demonstrates how to use Java's PriorityQueue with custom objects implementing Comparable.
+ */
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
-public class priorityQueueForObjects{
-    static class Students implements  Comparable<Students>{
-        String name ; 
-        int rank ; 
+public class priorityQueueForObjects {
 
-        public Students(String name , int rank ) {
-            this.name = name ; 
-            this.rank = rank ; 
+    static class Student implements Comparable<Student> {
+        String name;
+        int rank;
 
+        public Student(String name, int rank) {
+            this.name = name;
+            this.rank = rank;
         }
-        @Override 
-        public int compareTo(Students s2){
-            return this.rank - s2.rank ; 
+
+        @Override
+        public int compareTo(Student s2) {
+            return this.rank - s2.rank; // Ascending order by rank
         }
     }
-    public static void main(String[] args) {
-        PriorityQueue<Students > pq = new PriorityQueue<>(Comparator.reverseOrder()) ; 
-        pq.add(new Students("A" , 10)); 
-        pq.add(new Students("B" , 25)); 
-        pq.add(new Students("C" , 12)); 
-        pq.add(new Students("D" , 2)); 
 
-        while(!pq.isEmpty()){
-            System.out.println(pq.peek().name) ; 
-            pq.remove(); 
+    public static void main(String[] args) {
+        // Reverse order comparator sorts highest rank first
+        PriorityQueue<Student> pq = new PriorityQueue<>(Comparator.reverseOrder());
+        pq.add(new Student("A", 10));
+        pq.add(new Student("B", 25));
+        pq.add(new Student("C", 12));
+        pq.add(new Student("D", 2));
+
+        System.out.println("Students prioritized in reverse rank order:");
+        while (!pq.isEmpty()) {
+            Student s = pq.remove();
+            System.out.println("Student: " + s.name + ", Rank: " + s.rank);
         }
     }
 }

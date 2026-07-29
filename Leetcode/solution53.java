@@ -1,28 +1,27 @@
-public class solution53{
-    public static int maxSubArraySum(int[] nums) {
-        int curr = 0 ; 
-        int maxSum = Integer.MIN_VALUE; 
-        for (int i = 0 ; i < nums.length ; i ++ ){
-                curr += nums[i] ; 
-                if(curr < 0 ){
-                    curr = 0 ; 
-                }
-                maxSum = Math.max(curr , maxSum) ; 
-                
-        }
-        if (maxSum > 0 ){
-            return maxSum ; 
-        }else {
-            maxSum = nums[0]; 
-            for (int i = 0 ; i < nums.length ; i ++ ){
-                maxSum = Math.max(maxSum , nums[i]) ; 
-            }
-            return maxSum ; 
-        }
+/**
+ * Program Name : solution53
+ * Topic        : LeetCode / Dynamic Programming
+ * Difficulty   : Medium (53. Maximum Subarray)
+ * Concepts     : Kadane's Algorithm, Dynamic Programming
+ * -------------------------------------------------------------
+ * Description  :
+ * Finds the contiguous subarray with the largest sum using Kadane's algorithm in O(N) time.
+ */
+public class solution53 {
 
+    public static int maxSubArray(int[] nums) {
+        int maxSoFar = nums[0];
+        int currentSum = nums[0];
+
+        for (int i = 1; i < nums.length; i++) {
+            currentSum = Math.max(nums[i], currentSum + nums[i]);
+            maxSoFar = Math.max(maxSoFar, currentSum);
+        }
+        return maxSoFar;
     }
+
     public static void main(String[] args) {
-        int[] nums = {-3 , -4 , -6 , -8 , -2 , -5 } ; 
-        System.out.println(maxSubArraySum(nums)) ; 
+        int[] nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+        System.out.println("Maximum Subarray Sum: " + maxSubArray(nums));
     }
 }

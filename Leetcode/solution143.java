@@ -1,73 +1,54 @@
-public class solution143{
-    
-    public static class Node {
-        int data;
-        Node next;
+/**
+ * Program Name : solution143
+ * Topic        : LeetCode / Linked List
+ * Difficulty   : Medium (143. Reorder List)
+ * Concepts     : Middle Finding, List Reversal, Interleaving Nodes
+ * -------------------------------------------------------------
+ * Description  :
+ * Reorders a linked list to L0 -> Ln -> L1 -> Ln-1 -> L2 -> Ln-2... in-place.
+ */
+public class solution143 {
 
-        Node(int data) {
-            this.data = data;
+    static class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode(int val) {
+            this.val = val;
             this.next = null;
         }
     }
 
-    public Node head;
-    public Node tail;
-    public static int size ; 
+    public static void reorderList(ListNode head) {
+        if (head == null || head.next == null) return;
 
-    public void addLast(int data) {
-        Node newNode = new Node(data);
-        size++ ; 
-        if (head == null) {
-            head = tail = newNode;
-            return;
+        // Step 1: Find Mid
+        ListNode slow = head;
+        ListNode fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
         }
 
-        tail.next = newNode;
-        tail = newNode;
-    }
-    public void printList() {
-        if (head == null) {
-            System.out.println("The linked list is empty");
-            return;
+        // Step 2: Reverse second half
+        ListNode curr = slow.next;
+        slow.next = null; // Split list into two halves
+        ListNode prev = null;
+
+        while (curr != null) {
+            ListNode nextNode = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = nextNode;
         }
 
-        Node temp = head;
-
-        while (temp != null) {
-            System.out.print(temp.data + " -> ");
-            temp = temp.next;
-        }
-
-        System.out.println("null");
-    }
-    public Node midNode(){
-        Node slow = head ; 
-        Node fast = head ; 
-        while(fast != null && fast.next != null ){
-            slow = slow.next ; 
-            fast = fast.next.next ; 
-
-        }
-        return slow ; 
-    }
-    public void reverse(){
-        Node prev = null ;
-        Node curry= midNode() ; 
-        Node curr = curry.next ; 
-        Node Next ; 
-        while (curr != null ){
-            Next = curr.next ; 
-            curr.next = prev ; 
-            prev = curr ; 
-            curr = Next ; 
-
-        }
-        Node first = head;
-        Node second = prev;
+        // Step 3: Interleave two halves
+        ListNode first = head;
+        ListNode second = prev;
 
         while (second != null) {
-            Node temp1 = first.next;
-            Node temp2 = second.next;
+            ListNode temp1 = first.next;
+            ListNode temp2 = second.next;
 
             first.next = second;
             second.next = temp1;
@@ -75,23 +56,30 @@ public class solution143{
             first = temp1;
             second = temp2;
         }
-        
-        
-    }
-    
-    public static void main(String args[]){
-        solution143 ll = new solution143() ; 
-        ll.addLast(1);
-        ll.addLast(2);
-        ll.addLast(3);
-        ll.addLast(4);
-        ll.addLast(5);
-        ll.printList();
-        ll.reverse();
-        ll.printList();
-        
-        // ll.midNode();
-        
     }
 
+    public static void printList(ListNode head) {
+        ListNode temp = head;
+        while (temp != null) {
+            System.out.print(temp.val + " -> ");
+            temp = temp.next;
+        }
+        System.out.println("null");
+    }
+
+    public static void main(String[] args) {
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(3);
+        head.next.next.next = new ListNode(4);
+        head.next.next.next.next = new ListNode(5);
+
+        System.out.print("Original List: ");
+        printList(head);
+
+        reorderList(head);
+
+        System.out.print("Reordered List: ");
+        printList(head);
+    }
 }

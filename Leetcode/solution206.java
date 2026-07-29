@@ -1,35 +1,48 @@
+/**
+ * Program Name : solution206
+ * Topic        : LeetCode / Linked List
+ * Difficulty   : Easy (206. Reverse Linked List)
+ * Concepts     : Iterative List Reversal, Pointer Manipulation
+ * -------------------------------------------------------------
+ * Description  :
+ * Reverses a singly linked list in O(N) time and O(1) space.
+ */
+public class solution206 {
 
-
-public class solution206{
-    public class ListNode {
+    static class ListNode {
         int val;
         ListNode next;
 
         ListNode(int val) {
             this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-        public ListNode head ; 
-
-        public void reverseList(ListNode head ){
-            ListNode prev = null ; 
-            ListNode temp = head ; 
-            ListNode Next ;
-            while(temp != null ){
-                Next = temp.next ; 
-                temp.next = prev ; 
-                prev = temp ; 
-                temp = Next ; 
-
-            }
-            head = prev ; 
+            this.next = null;
         }
     }
+
+    public static ListNode reverseList(ListNode head) {
+        ListNode prev = null;
+        ListNode curr = head;
+
+        while (curr != null) {
+            ListNode nextNode = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = nextNode;
+        }
+        return prev;
+    }
+
     public static void main(String[] args) {
-        
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(3);
+
+        ListNode reversed = reverseList(head);
+        System.out.print("Reversed List: ");
+        while (reversed != null) {
+            System.out.print(reversed.val + " -> ");
+            reversed = reversed.next;
+        }
+        System.out.println("null");
     }
 }

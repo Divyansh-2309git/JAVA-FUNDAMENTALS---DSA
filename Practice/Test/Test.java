@@ -1,5 +1,14 @@
+/**
+ * Program Name : Test
+ * Topic        : Practice / Test
+ * Difficulty   : Beginner
+ * Concepts     : Java Standard Output, Environment Test
+ * -------------------------------------------------------------
+ * Description  :
+ * Simple environment test file to verify Java environment and repository setup.
+ */
 public class Test {
-    public static void main(String args[]){{
-      System.out.println("This file was created to test the git and github repos");  
-    }}
+    public static void main(String[] args) {
+        System.out.println("Repository setup test verified successfully!");
+    }
 }

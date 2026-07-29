@@ -1,33 +1,44 @@
-public class solution75{
-    public static void sort(int[] nums){
-        int l = 0 ; 
-        int r = nums.length - 1 ; 
-        int i = 0 ; 
-        while (i <= r ){
-            if(nums[i] == 0 ){
-                int temp = nums[l] ; 
-                nums[l] = nums[i] ; 
-                nums[i] = temp ; 
-                i ++ ; 
-                l ++ ; 
-            }
-            else if(nums[i] == 1 ){
-            i ++ ; 
-            }
-            else {
-                int temp = nums[r] ; 
-                nums[r] = nums[i] ; 
-                nums[i] = temp ; 
-                r -- ; 
-                
+/**
+ * Program Name : solution75
+ * Topic        : LeetCode / Sorting
+ * Difficulty   : Medium (75. Sort Colors)
+ * Concepts     : Dutch National Flag Algorithm, 3-Way Partitioning
+ * -------------------------------------------------------------
+ * Description  :
+ * Sorts an array with 0s, 1s, and 2s in-place in linear O(N) time.
+ */
+public class solution75 {
+
+    public static void sortColors(int[] nums) {
+        int low = 0;
+        int mid = 0;
+        int high = nums.length - 1;
+
+        while (mid <= high) {
+            if (nums[mid] == 0) {
+                int temp = nums[low];
+                nums[low] = nums[mid];
+                nums[mid] = temp;
+                low++;
+                mid++;
+            } else if (nums[mid] == 1) {
+                mid++;
+            } else {
+                int temp = nums[high];
+                nums[high] = nums[mid];
+                nums[mid] = temp;
+                high--;
             }
         }
     }
+
     public static void main(String[] args) {
-        int[] nums = {1 , 1 ,2 , 2 , 0 , 0 ,2 ,1 , 2  , 0 } ; 
-        sort(nums) ; 
-        for (int i = 0 ; i < nums.length ; i++){
-            System.out.println(nums[i]);
+        int[] nums = {2, 0, 2, 1, 1, 0};
+        sortColors(nums);
+        System.out.print("Sorted Colors: ");
+        for (int num : nums) {
+            System.out.print(num + " ");
         }
+        System.out.println();
     }
 }
