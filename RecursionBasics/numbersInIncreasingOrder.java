@@ -1,17 +1,27 @@
-package RecursionBasics;
-
-
+/**
+ * Program Name : numbersInIncreasingOrder
+ * Topic        : RecursionBasics
+ * Difficulty   : Beginner
+ * Concepts     : Call-stack unwinding, Post-recursive action
+ * -------------------------------------------------------------
+ * Description  :
+ * Prints numbers from 1 to N in increasing order using recursion.
+ */
 public class numbersInIncreasingOrder {
-    public static void printInc(int n ){
-        if(n == 1){
+
+    public static void printIncreasing(int n) {
+        if (n == 1) {
             System.out.print(n + " ");
-            return ;
+            return;
         }
-        printInc(n - 1);
-        System.out.print(n + " "); 
+        printIncreasing(n - 1);
+        System.out.print(n + " ");
     }
+
     public static void main(String[] args) {
-        int n = 10 ; 
-        printInc(n);
+        int n = 10;
+        System.out.print("Numbers in increasing order: ");
+        printIncreasing(n);
+        System.out.println();
     }
 }

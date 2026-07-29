@@ -1,20 +1,35 @@
-package Backtracking;
-
+/**
+ * Program Name : findSubsets
+ * Topic        : Backtracking
+ * Difficulty   : Intermediate
+ * Concepts     : Subset Generation, Binary Decision Tree, Backtracking
+ * -------------------------------------------------------------
+ * Description  :
+ * Generates all 2^N subsets of a string by making a Yes/No choice for including each character.
+ */
 public class findSubsets {
-    public static void subsets(String str , int i , String ans){
-        if(i == str.length()){
-            if(ans.length() == 0 ){
-                System.out.println("null");
-            }else{
-                System.out.println(ans);
+
+    public static void findSubsets(String str, int index, String currentSubset) {
+        // Base case: processed all characters
+        if (index == str.length()) {
+            if (currentSubset.length() == 0) {
+                System.out.println("Ø (Empty Set)");
+            } else {
+                System.out.println(currentSubset);
             }
             return;
         }
-        subsets(str, i+1, ans+ str.charAt(i));
-        subsets(str, i+1 , ans);
+
+        // Choice 1: Include current character (YES)
+        findSubsets(str, index + 1, currentSubset + str.charAt(index));
+
+        // Choice 2: Exclude current character (NO)
+        findSubsets(str, index + 1, currentSubset);
     }
-    public static void main(String args[]) {
+
+    public static void main(String[] args) {
         String str = "abc";
-        subsets(str, 0, new String(""));
+        System.out.println("Subsets of \"" + str + "\":");
+        findSubsets(str, 0, "");
     }
-}                                                                                                               
+}

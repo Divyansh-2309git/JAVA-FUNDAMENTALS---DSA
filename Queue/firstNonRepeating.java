@@ -1,29 +1,43 @@
- 
-import java.util.*;
+/**
+ * Program Name : firstNonRepeating
+ * Topic        : Queue
+ * Difficulty   : Intermediate
+ * Concepts     : Character Frequency Array, Queue Stream Processing
+ * -------------------------------------------------------------
+ * Description  :
+ * Finds the first non-repeating character in a stream of characters using a Queue in O(N) time.
+ */
+import java.util.LinkedList;
+import java.util.Queue;
 
+public class firstNonRepeating {
 
-public class firstNonRepeating{
-    public static void printNonRepeating(String str){
-        int[] freq = new int[26] ; 
-        Queue <Character> q = new LinkedList<>(); 
+    public static void printNonRepeating(String str) {
+        int[] freq = new int[26];
+        Queue<Character> queue = new LinkedList<>();
 
-        for(int i = 0 ; i < str.length() ; i ++ ){
-            char ch = str.charAt(i) ; 
-            q.add(ch); 
-            freq[ch - 'a'] ++ ; 
+        System.out.print("First non-repeating characters stream: ");
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            queue.add(ch);
+            freq[ch - 'a']++;
 
-            while(!q.isEmpty() && freq[q.peek() - 'a'] > 1 ){
-                q.remove() ; 
+            // Remove repeating characters from front of queue
+            while (!queue.isEmpty() && freq[queue.peek() - 'a'] > 1) {
+                queue.remove();
             }
-            if(q.isEmpty()){
-                System.out.println(-1) ; 
-            }else{
-                System.out.println(q.peek()) ; 
+
+            if (queue.isEmpty()) {
+                System.out.print("-1 ");
+            } else {
+                System.out.print(queue.peek() + " ");
             }
         }
+        System.out.println();
     }
+
     public static void main(String[] args) {
-        String str = "aabccxb"; 
-        printNonRepeating(str); 
+        String stream = "aabccxb";
+        printNonRepeating(stream);
     }
 }

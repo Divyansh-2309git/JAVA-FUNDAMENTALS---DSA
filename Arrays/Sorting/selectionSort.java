@@ -1,25 +1,38 @@
-package Arrays.Sorting;
-
+/**
+ * Program Name : selectionSort
+ * Topic        : Sorting
+ * Difficulty   : Beginner
+ * Concepts     : Minimum Element Selection, Swapping
+ * -------------------------------------------------------------
+ * Description  :
+ * Sorts an array using Selection Sort by finding the minimum element from the unsorted part.
+ */
 public class selectionSort {
-    public static void selectionSort(int nums[]){
-        for (int i = 0 ; i < nums.length - 1 ; i ++){
-            int min = i ; 
-            for (int j = i + 1 ; j < nums.length  ; j ++){
-                if(nums[min] > nums[j]){
-                    min = j ; 
+
+    public static void sort(int[] nums) {
+        int n = nums.length;
+        for (int i = 0; i < n - 1; i++) {
+            int minIndex = i;
+            for (int j = i + 1; j < n; j++) {
+                if (nums[j] < nums[minIndex]) {
+                    minIndex = j;
                 }
             }
-            int temp = nums[min] ; 
-            nums[min] = nums[i];
-            nums[i] = temp ; 
+            // Swap minimum element with current element
+            int temp = nums[minIndex];
+            nums[minIndex] = nums[i];
+            nums[i] = temp;
         }
     }
+
     public static void main(String[] args) {
-        int numbers[] = {5 , 4 , 2 , 1 , 3};
-        selectionSort(numbers);
-        for(int i = 0 ; i < numbers.length ; i ++){
-            System.out.print(numbers[i]);
+        int[] nums = {5, 4, 1, 3, 2};
+        sort(nums);
+
+        System.out.print("Sorted Array (Selection Sort): ");
+        for (int num : nums) {
+            System.out.print(num + " ");
         }
+        System.out.println();
     }
-    
 }

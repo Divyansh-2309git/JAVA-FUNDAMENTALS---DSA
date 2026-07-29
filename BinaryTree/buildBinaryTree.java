@@ -1,87 +1,69 @@
+/**
+ * Program Name : buildBinaryTree
+ * Topic        : Binary Tree
+ * Difficulty   : Intermediate
+ * Concepts     : Tree Preorder Construction, Level Order Traversal, Queue-based BFS
+ * -------------------------------------------------------------
+ * Description  :
+ * Builds a Binary Tree from a preorder sequence containing -1 for null nodes,
+ * and performs level-order traversal (BFS) using a Queue.
+ */
+import java.util.LinkedList;
+import java.util.Queue;
 
-import java.util.*;
+public class buildBinaryTree {
 
-public class buildBinaryTree{
-    static class Node{
-        int data ; 
-        Node left ; 
-        Node right ; 
+    static class Node {
+        int data;
+        Node left;
+        Node right;
 
-        public Node(int data ) {
-            this.data = data ; 
-            this.left = null ; 
-            this.right = null ; 
+        public Node(int data) {
+            this.data = data;
+            this.left = null;
+            this.right = null;
         }
-        
-        
-
     }
-    static class BinaryTree{
-        static int indx = -1 ; 
-        public static Node buildTree(int nodes[]){
-            indx ++ ; 
-            if(nodes[indx] == -1 ){
-                return null ; 
-            }
-            Node newNode = new Node(nodes[indx]); 
-            newNode.left = buildTree(nodes); 
-            newNode.right = buildTree(nodes); 
 
-            return newNode ; 
+    static class BinaryTreeBuilder {
+        private static int index = -1;
+
+        public static Node buildTree(int[] nodes) {
+            index++;
+            if (nodes[index] == -1) {
+                return null;
+            }
+
+            Node newNode = new Node(nodes[index]);
+            newNode.left = buildTree(nodes);
+            newNode.right = buildTree(nodes);
+
+            return newNode;
         }
 
-        public static void preorder(Node root){
-            if(root == null ){
-                return ; 
-            }
-            System.out.print(root.data + " ") ; 
+        public static void levelOrderTraversal(Node root) {
+            if (root == null) return;
 
-            preorder(root.left);
-            preorder(root.right);
+            Queue<Node> queue = new LinkedList<>();
+            queue.add(root);
+            queue.add(null); // Level marker
 
-        }
-
-        public static void inorder(Node root){
-            if(root == null){
-                return ; 
-            }
-            inorder(root.left);
-            System.out.print(root.data + " "); 
-            inorder(root.right ); 
-
-        }
-        public static void postorder(Node root){
-            if(root == null ){
-                return ; 
-            }
-            postorder(root.left);
-            postorder(root.right);
-            System.out.print(root.data + " ") ; 
-        }
-
-        public static void levelorder(Node root){
-            if(root == null ){
-                return ; 
-            }
-            Queue <Node> q = new LinkedList<>(); 
-            q.add(root); 
-            q.add(null); 
-            while(!q.isEmpty()){
-                Node currentNode = q.remove(); 
-                if(currentNode == null ){
+            while (!queue.isEmpty()) {
+                Node currNode = queue.remove();
+                if (currNode == null) {
                     System.out.println();
-                    if (q.isEmpty()){
-                        break ; 
-                    }else {
-                        q.add(null);
+                    if (queue.isEmpty()) {
+                        break;
+                    } else {
+                        queue.add(null);
                     }
-                }else{
-                    System.out.print(currentNode.data + " ") ; 
-                    if(currentNode.left !=  null ){
-                        q.add(currentNode.left) ; 
+                } else {
+                    System.out.print(currNode.data + " ");
+                    if (currNode.left != null) {
+                        queue.add(currNode.left);
                     }
-                    if(currentNode.right != null ){
-                        q.add(currentNode.right ); 
+                    if (currNode.right != null) {
+                        queue.add(currNode.right);
                     }
                 }
             }
@@ -89,9 +71,10 @@ public class buildBinaryTree{
     }
 
     public static void main(String[] args) {
-        int nodes[] = {1 , 2 , 4 , -1 , -1 , 5 , -1 , -1 , 3 , -1 , 6 , -1 , -1}; 
-        BinaryTree tree = new BinaryTree(); 
-        Node root = tree.buildTree(nodes); 
-        tree.levelorder(root); 
+        int[] nodes = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
+        Node root = BinaryTreeBuilder.buildTree(nodes);
+
+        System.out.println("Level Order Traversal of constructed Binary Tree:");
+        BinaryTreeBuilder.levelOrderTraversal(root);
     }
 }

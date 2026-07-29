@@ -1,18 +1,31 @@
+/**
+ * Program Name : typesOfConstructors
+ * Topic        : Object-Oriented Programming (OOP)
+ * Difficulty   : Beginner
+ * Concepts     : Default vs. Parameterized Constructors, Constructor Overloading
+ * -------------------------------------------------------------
+ * Description  :
+ * Demonstrates non-parameterized (default) and parameterized constructors in Java.
+ */
 public class typesOfConstructors {
     public static void main(String[] args) {
-        Student a = new Student("hello"); 
-        
+        TypesStudent s1 = new TypesStudent(); // Invokes default constructor
+        TypesStudent s2 = new TypesStudent("Divyansh"); // Invokes parameterized constructor
     }
 }
 
-class Student{
-    String name ; 
-    int age ;
-    Student(){
-        System.out.println("This is an un-paramterised constructor which does not need any parameters");
+class TypesStudent {
+    String name;
+    int age;
+
+    // Non-parameterized constructor
+    TypesStudent() {
+        System.out.println("Default non-parameterized constructor invoked.");
     }
-    Student (String parameter){
-        System.out.println("This is the paramterisec constructor which needs parameter , here parameter is :" + parameter );
+
+    // Parameterized constructor
+    TypesStudent(String name) {
+        this.name = name;
+        System.out.println("Parameterized constructor invoked with name: " + name);
     }
 }
-// the construtors show polymorphism and when we call the constructor , according to the parameters the suitable one will be called only . 

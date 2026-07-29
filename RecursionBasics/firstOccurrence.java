@@ -1,19 +1,31 @@
-package RecursionBasics;
+/**
+ * Program Name : firstOccurrence
+ * Topic        : RecursionBasics
+ * Difficulty   : Beginner
+ * Concepts     : Linear Search via Recursion, Forward Traversal
+ * -------------------------------------------------------------
+ * Description  :
+ * Finds the index of the first occurrence of a key in an array recursively.
+ */
+public class firstOccurrence {
 
-public class firstOccurance {
-    public static int firstoccurance(int nums[] , int key , int i ){
-        if (i == nums.length){
-            return -1 ; 
+    public static int findFirstOccurrence(int[] nums, int key, int index) {
+        // Base case: end of array reached
+        if (index == nums.length) {
+            return -1;
         }
-        if (nums[i] == key){
-            return i ; 
+        // Check current index
+        if (nums[index] == key) {
+            return index;
         }
 
-        return firstoccurance(nums, key, i + 1 );
-
+        // Recurse for remaining array
+        return findFirstOccurrence(nums, key, index + 1);
     }
+
     public static void main(String[] args) {
-        int nums[] = {3 , 2 , 7 , 4 , 9 , 2 , 0 , 4 , 6 , 5};
-        System.out.println(firstoccurance(nums, 4, 0));
+        int[] nums = {3, 2, 7, 4, 9, 2, 0, 4, 6, 5};
+        int key = 4;
+        System.out.println("First occurrence of " + key + " is at index: " + findFirstOccurrence(nums, key, 0));
     }
 }

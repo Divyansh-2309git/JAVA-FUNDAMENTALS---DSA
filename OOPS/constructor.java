@@ -1,16 +1,24 @@
+/**
+ * Program Name : constructor
+ * Topic        : Object-Oriented Programming (OOP)
+ * Difficulty   : Beginner
+ * Concepts     : Parameterized Constructor, Object Initialization
+ * -------------------------------------------------------------
+ * Description  :
+ * Demonstrates how parameterized constructors initialize instance variables when an object is instantiated.
+ */
 public class constructor {
-    public static void main(String args[]) {
-        Student s1 = new Student("Divyansh") ; 
-        System.out.println(s1.name) ; 
-
-        
+    public static void main(String[] args) {
+        BasicStudent s1 = new BasicStudent("Divyansh");
+        System.out.println("Student Name: " + s1.name);
     }
 }
-class Student{
-    String name ; 
-    int roll ; 
-    Student (String name ){
-        System.out.println("The constructor is called");
-    }
 
+class BasicStudent {
+    String name;
+
+    BasicStudent(String name) {
+        this.name = name;
+        System.out.println("Parameterized constructor invoked for: " + name);
+    }
 }

@@ -1,35 +1,39 @@
-package RecursionBasics;
+/**
+ * Program Name : lastOccurrence
+ * Topic        : RecursionBasics
+ * Difficulty   : Intermediate
+ * Concepts     : Backtracking Traversal, Post-order Evaluation
+ * -------------------------------------------------------------
+ * Description  :
+ * Finds the index of the last occurrence of a key in an array recursively.
+ */
+public class lastOccurrence {
 
-public class lastOccurance {
-
-    public static int last(int nums[], int key, int i) {
-
-        if (i == nums.length) {
+    public static int findLastOccurrence(int[] nums, int key, int index) {
+        // Base case: reached end of array
+        if (index == nums.length) {
             return -1;
         }
 
-        int isFound = last(nums, key, i + 1);
+        // Recurse to end first
+        int isFoundLater = findLastOccurrence(nums, key, index + 1);
 
-        // If found later, return that index
-        if (isFound != -1) {
-            return isFound;
+        // If target was found in later elements, return that index
+        if (isFoundLater != -1) {
+            return isFoundLater;
         }
 
         // Otherwise check current index
-        if (nums[i] == key) {
-            return i;
+        if (nums[index] == key) {
+            return index;
         }
 
         return -1;
     }
 
     public static void main(String[] args) {
-
-        int nums[] = {2, 5, 3, 65, 2, 6, 3, 6, 8, 5, 3};
-
-       System.out.println(last(nums, 5, 0));
+        int[] nums = {3, 2, 7, 4, 9, 2, 0, 4, 6, 5};
+        int key = 4;
+        System.out.println("Last occurrence of " + key + " is at index: " + findLastOccurrence(nums, key, 0));
     }
-}suyte m is 
-{
-    System.out.println()
 }

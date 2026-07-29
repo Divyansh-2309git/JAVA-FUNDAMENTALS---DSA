@@ -1,16 +1,27 @@
+/**
+ * Program Name : accessModifiers
+ * Topic        : Object-Oriented Programming (OOP)
+ * Difficulty   : Beginner
+ * Concepts     : Access Modifiers (public, private), Data Hiding, Getters/Setters
+ * -------------------------------------------------------------
+ * Description  :
+ * Demonstrates access restriction in Java. Public properties can be directly accessed,
+ * whereas private properties are hidden and updated via setter methods.
+ */
 public class accessModifiers {
-    public static void main(String args[]) {
-        BankAccount bk = new BankAccount() ; 
-        bk.username = "Divyansh" ; 
-        bk.setPassword("SagarSingh");
-    }}
-    class BankAccount{
-        public String username ; 
-        private String password ; 
-        public void setPassword (String pwd ){
-            password = pwd ; 
-            System.out.println(password);
-
-        }
-
+    public static void main(String[] args) {
+        BankAccount bk = new BankAccount();
+        bk.username = "Divyansh"; // Public field accessible directly
+        bk.setPassword("SecurePassword123"); // Private field modified via setter
     }
+}
+
+class BankAccount {
+    public String username;    // Accessible anywhere
+    private String password;   // Restricted to BankAccount class only
+
+    public void setPassword(String pwd) {
+        this.password = pwd;
+        System.out.println("Password updated successfully.");
+    }
+}

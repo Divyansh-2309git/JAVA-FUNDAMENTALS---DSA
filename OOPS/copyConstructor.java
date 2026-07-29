@@ -1,34 +1,38 @@
+/**
+ * Program Name : copyConstructor
+ * Topic        : Object-Oriented Programming (OOP)
+ * Difficulty   : Intermediate
+ * Concepts     : Shallow Copy Constructor, Reference Copying
+ * -------------------------------------------------------------
+ * Description  :
+ * Demonstrates a Copy Constructor creating a shallow copy of an existing object.
+ */
 public class copyConstructor {
     public static void main(String[] args) {
-        Student s1 = new Student(); 
-        s1.name = "Divyansh1";
-        s1.roll = 4 ; 
-        s1.password = "SagarSingh";
+        CopyStudent s1 = new CopyStudent();
+        s1.name = "Divyansh";
+        s1.roll = 101;
+        s1.password = "SecretPass";
 
-        Student s2 = new Student(s1); 
-        s2.password  = "Aditi ji ";
-
-
-
-
+        // Copy constructor creates s2 as a duplicate of s1
+        CopyStudent s2 = new CopyStudent(s1);
+        System.out.println("Copied Student Name: " + s2.name + ", Roll: " + s2.roll);
     }
 }
-// This is a shallow copy of the contructor in which only the refrence is of one is given to another.
-class Student{
-    String name ; 
-    int roll ; 
-    String password ; 
-    Student(Student s){
-        this.name = s.name ; 
-        this.roll = s.roll ; 
-        
-    }
-    Student(){
-        System.out.println("This is the construcotr called for the s1 ");
+
+class CopyStudent {
+    String name;
+    int roll;
+    String password;
+
+    CopyStudent() {
+        System.out.println("Default constructor called.");
     }
 
-    
-    
-
+    // Copy Constructor (Shallow Copy)
+    CopyStudent(CopyStudent s) {
+        this.name = s.name;
+        this.roll = s.roll;
+        this.password = s.password;
+    }
 }
-

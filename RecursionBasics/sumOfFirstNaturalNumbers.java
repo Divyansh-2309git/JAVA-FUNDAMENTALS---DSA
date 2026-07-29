@@ -1,16 +1,23 @@
-package RecursionBasics;
-
+/**
+ * Program Name : sumOfFirstNaturalNumbers
+ * Topic        : RecursionBasics
+ * Difficulty   : Beginner
+ * Concepts     : Accumulative Recursion, Mathematical Summation
+ * -------------------------------------------------------------
+ * Description  :
+ * Computes the sum of the first N natural numbers recursively.
+ */
 public class sumOfFirstNaturalNumbers {
-    public static int sum(int n ){
-        if (n == 0 ){
-            return 0 ; 
+
+    public static int calculateSum(int n) {
+        if (n == 0) {
+            return 0;
         }
-        int s = n + sum(n - 1) ; 
-        return s ; 
+        return n + calculateSum(n - 1);
     }
+
     public static void main(String[] args) {
-        int n = 5; 
-        System.out.println(sum(n));
+        int n = 5;
+        System.out.println("Sum of first " + n + " natural numbers: " + calculateSum(n));
     }
 }
-  

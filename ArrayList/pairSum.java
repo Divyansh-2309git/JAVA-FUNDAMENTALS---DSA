@@ -1,31 +1,43 @@
-
+/**
+ * Program Name : pairSum
+ * Topic        : ArrayList
+ * Difficulty   : Intermediate
+ * Concepts     : Sorted ArrayList, Two-Pointer Pair Sum
+ * -------------------------------------------------------------
+ * Description  :
+ * Determines if there exists a pair in a sorted ArrayList that sums up to a target key in O(N) time.
+ */
 import java.util.ArrayList;
 
-public class pairSum{
-    public static boolean pairs(ArrayList<Integer> nums , int key ){
-        int left = 0 ; 
-        int right = nums.size() - 1 ; 
-        while (left < right ){
-            int curr = nums.get(left) + nums.get(right);
-            if (curr == key){
-                return true ;
-            }else if (curr < key){
-                left ++; 
-            }else{
-                right -- ; 
+public class pairSum {
+
+    public static boolean hasPairSum(ArrayList<Integer> nums, int target) {
+        int left = 0;
+        int right = nums.size() - 1;
+
+        while (left < right) {
+            int currentSum = nums.get(left) + nums.get(right);
+            if (currentSum == target) {
+                return true;
+            } else if (currentSum < target) {
+                left++;
+            } else {
+                right--;
             }
         }
-        return false ; 
+        return false;
     }
-    public static void main(String nums[]){
-        ArrayList<Integer> list = new ArrayList<>(); 
-        list.add(1); 
-        list.add(2); 
-        list.add(3); 
+
+    public static void main(String[] args) {
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
         list.add(4);
         list.add(5);
-        list.add(6); 
+        list.add(6);
 
-        System.out.println(pairs(list, 20));
+        int target = 5;
+        System.out.println("Pair with sum " + target + " exists: " + hasPairSum(list, target));
     }
 }

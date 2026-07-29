@@ -1,26 +1,31 @@
-
+/**
+ * Program Name : swap
+ * Topic        : ArrayList
+ * Difficulty   : Beginner
+ * Concepts     : List Element Swapping, Auxiliary Variable
+ * -------------------------------------------------------------
+ * Description  :
+ * Swaps two elements in an ArrayList at given index positions.
+ */
 import java.util.ArrayList;
 
-
 public class swap {
-    public static void change(ArrayList<Integer> list ,int i , int v ){
-        int temp = list.get(i); 
-        list.set(i , list.get(v)); 
-        list.set(v , temp); 
 
-        
+    public static void swapElements(ArrayList<Integer> list, int index1, int index2) {
+        int temp = list.get(index1);
+        list.set(index1, list.get(index2));
+        list.set(index2, temp);
     }
+
     public static void main(String[] args) {
-    ArrayList <Integer> list = new ArrayList<>(); 
-    list.add(1); 
-    list.add(2); 
-    list.add(5);
-    list.add(8); 
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(5);
+        list.add(8);
 
-    change(list,1 , 2);
-    for(int i = 0 ; i < list.size() ; i ++ ){
-        System.out.println(list.get(i)); 
-    }
-
+        System.out.println("Before swap: " + list);
+        swapElements(list, 1, 2);
+        System.out.println("After swapping index 1 and 2: " + list);
     }
 }

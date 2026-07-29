@@ -1,47 +1,49 @@
-
+/**
+ * Program Name : stackInArrayList
+ * Topic        : Stacks
+ * Difficulty   : Beginner
+ * Concepts     : Custom Stack Implementation, Dynamic Array List Backing
+ * -------------------------------------------------------------
+ * Description  :
+ * Implements a Stack data structure from scratch using an ArrayList as the underlying container.
+ */
 import java.util.ArrayList;
 
-public class stackInArrayList{
-    static class Stack {
-        static ArrayList<Integer> list = new ArrayList<>(); 
-        public static boolean isEmpty(){
-            return list.size() == 0 ;  
+public class stackInArrayList {
+
+    static class CustomStack {
+        private ArrayList<Integer> list = new ArrayList<>();
+
+        public boolean isEmpty() {
+            return list.size() == 0;
         }
 
-        // Push 
-        public static void push(int data ){
+        public void push(int data) {
             list.add(data);
         }
 
-        // Pop 
-        public static int pop(){
-            if(isEmpty()){
-                return -1 ; 
-            }
-            int last =  list.get(list.size() - 1 ) ; 
-            list.remove(list.size() -1 ) ; 
-            return last ; 
-        }
-        
-        // Peek 
-        public static int peek(){
-            if(isEmpty()){
-                return -1 ; 
-            }
-            return list.get(list.size() -1 ) ; 
+        public int pop() {
+            if (isEmpty()) return -1;
+            int top = list.get(list.size() - 1);
+            list.remove(list.size() - 1);
+            return top;
         }
 
+        public int peek() {
+            if (isEmpty()) return -1;
+            return list.get(list.size() - 1);
+        }
     }
-    public static void main(String[] args) {
-        Stack s = new Stack () ; 
-        s.push(1); 
-        s.push(2) ; 
-        s.push(3); 
-        s.push(4) ; 
 
-        while(!s.isEmpty()){
-            System.out.println(s.peek()); 
-            s.pop() ; 
+    public static void main(String[] args) {
+        CustomStack stack = new CustomStack();
+        stack.push(10);
+        stack.push(20);
+        stack.push(30);
+
+        while (!stack.isEmpty()) {
+            System.out.println(stack.peek());
+            stack.pop();
         }
     }
 }

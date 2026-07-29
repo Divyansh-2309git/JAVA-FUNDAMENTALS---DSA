@@ -1,57 +1,70 @@
-public class usingLinkedList{
-    static class Node{
-        int data ; 
-        Node next ; 
+/**
+ * Program Name : usingLinkedList
+ * Topic        : Queue
+ * Difficulty   : Beginner
+ * Concepts     : Linked List Queue, Head & Tail References
+ * -------------------------------------------------------------
+ * Description  :
+ * Custom Queue implementation from scratch backed by a Singly Linked List with head and tail pointers.
+ */
+public class usingLinkedList {
 
-        public Node(int data ) {
-            this.data = data ; 
-            this.next = null ; 
+    static class Node {
+        int data;
+        Node next;
 
-        }       
+        public Node(int data) {
+            this.data = data;
+            this.next = null;
+        }
     }
-    static class Queue {
-        public static  Node head = null ; 
-        public static Node tail = null ; 
 
-        public static boolean  isEmpty(){
-            return (head == null && tail == null) ; 
+    static class CustomLinkedListQueue {
+        private Node head = null;
+        private Node tail = null;
+
+        public boolean isEmpty() {
+            return head == null && tail == null;
         }
 
-        public  static void add(int data ){
-            Node newNode = new Node(data); 
-            if(head == null ){
-                head = tail = newNode; 
-                return ;
+        public void add(int data) {
+            Node newNode = new Node(data);
+            if (isEmpty()) {
+                head = tail = newNode;
+                return;
             }
-            tail.next = newNode ; 
-            tail = newNode ; 
+            tail.next = newNode;
+            tail = newNode;
         }
 
-        public static int remove(){
-            if(isEmpty()){
-                System.out.println("The linked list is empty. "); 
-                return -1 ; 
+        public int remove() {
+            if (isEmpty()) {
+                return -1;
             }
-            int front = head.data  ; 
-            if(tail == head ){
-                tail = head = null ; 
-            }else{
-                head = head.next ; 
+            int frontVal = head.data;
+            if (head == tail) {
+                head = tail = null;
+            } else {
+                head = head.next;
             }
-            return front ; 
-
+            return frontVal;
         }
-    
+
+        public int peek() {
+            if (isEmpty()) return -1;
+            return head.data;
+        }
     }
+
     public static void main(String[] args) {
-        Queue q = new Queue(); 
+        CustomLinkedListQueue q = new CustomLinkedListQueue();
         q.add(1);
         q.add(2);
         q.add(3);
-        q.add(4);
 
-        while(!q.isEmpty()){
-            System.out.println(q.remove());
+        while (!q.isEmpty()) {
+            System.out.println(q.peek());
+            q.remove();
         }
     }
 }

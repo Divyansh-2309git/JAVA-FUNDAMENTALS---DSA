@@ -1,12 +1,25 @@
+/**
+ * Program Name : reversed
+ * Topic        : Basics
+ * Difficulty   : Beginner
+ * Concepts     : Digit Extraction, Arithmetic Operations, Loops
+ * -------------------------------------------------------------
+ * Description  :
+ * Reverses the digits of an integer number mathematically.
+ */
 public class reversed {
-    public static void main(String args[]){
-        int a = 101 ;
-        int reversed = 0 ; 
-        while (a != 0 ){
-            reversed = (reversed * 10 ) + (a % 10);
-            a = a/10 ;
-            
+    public static void main(String[] args) {
+        int number = 101;
+        int originalNumber = number;
+        int reversedNumber = 0;
+
+        while (number != 0) {
+            int lastDigit = number % 10;
+            reversedNumber = (reversedNumber * 10) + lastDigit;
+            number /= 10;
         }
-        System.out.println(reversed);
+
+        System.out.println("Original number: " + originalNumber);
+        System.out.println("Reversed number: " + reversedNumber);
     }
 }

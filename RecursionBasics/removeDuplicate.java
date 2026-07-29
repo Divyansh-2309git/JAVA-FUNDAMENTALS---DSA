@@ -1,23 +1,35 @@
-package RecursionBasics;
-
+/**
+ * Program Name : removeDuplicate
+ * Topic        : RecursionBasics
+ * Difficulty   : Intermediate
+ * Concepts     : Boolean Mapping, String Processing, Recursion
+ * -------------------------------------------------------------
+ * Description  :
+ * Removes duplicate lowercase characters from a string using a boolean frequency map recursively.
+ */
 public class removeDuplicate {
-    public static void removeDup(String str , int index , StringBuilder newStr , boolean map[]){
-        if (index == str.length()){
-            System.out.println(newStr);
+
+    public static void removeDuplicates(String str, int index, StringBuilder newStr, boolean[] map) {
+        if (index == str.length()) {
+            System.out.println("String without duplicates: " + newStr);
             return;
         }
 
-        char current = str.charAt(index);
-        if (map[current - 'a'] == true ){
-            removeDup(str, index + 1, newStr, map);
-        }else{
-            map[current- 'a'] = true ; 
-            removeDup(str, index +1, newStr.append(current), map);
-        }
+        char currentChar = str.charAt(index);
+        int mapIndex = currentChar - 'a';
 
+        if (map[mapIndex]) {
+            // Character already seen, skip
+            removeDuplicates(str, index + 1, newStr, map);
+        } else {
+            // New character, mark seen and append
+            map[mapIndex] = true;
+            removeDuplicates(str, index + 1, newStr.append(currentChar), map);
+        }
     }
-    public static void main (String args[]){
-        String str = "divynashsinghehlloo";
-        removeDup(str, 0, new StringBuilder(""), new boolean[26]);
+
+    public static void main(String[] args) {
+        String str = "appnnacollege";
+        removeDuplicates(str, 0, new StringBuilder(""), new boolean[26]);
     }
 }

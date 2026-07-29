@@ -1,51 +1,65 @@
-package DivideAndRule;
-
+/**
+ * Program Name : mergeSort
+ * Topic        : Divide and Conquer
+ * Difficulty   : Intermediate
+ * Concepts     : Divide & Conquer, Recursion, Merge Step, O(N log N) Sorting
+ * -------------------------------------------------------------
+ * Description  :
+ * Implements the Merge Sort algorithm using a divide-and-conquer strategy.
+ */
 public class mergeSort {
-    public static void mergeSort(int arr[] , int si , int ei ){
-        if(si >= ei ){
+
+    public static void sort(int[] arr, int startIndex, int endIndex) {
+        // Base case: 1 or 0 elements
+        if (startIndex >= endIndex) {
             return;
         }
-        int mid = si + (ei - si ) / 2 ; 
-       mergeSort(arr, si, mid);
-       mergeSort(arr, mid + 1, ei);
-       merge(arr, si, mid, ei);
 
+        int mid = startIndex + (endIndex - startIndex) / 2;
+        sort(arr, startIndex, mid);      // Sort left half
+        sort(arr, mid + 1, endIndex);   // Sort right half
+        merge(arr, startIndex, mid, endIndex); // Merge sorted halves
     }
-    public static void merge(int arr[] , int si , int mid , int ei){
-        int temp[] = new int[ei - si + 1];
-        int i = si ; 
-        int j = mid + 1 ; 
-        int k = 0 ; 
 
-        if(arr[i] < arr[j]){
-            temp[k] = arr[i];
-            i++ ; k++ ; 
+    public static void merge(int[] arr, int startIndex, int mid, int endIndex) {
+        int[] temp = new int[endIndex - startIndex + 1];
+        int i = startIndex; // Left sub-array pointer
+        int j = mid + 1;     // Right sub-array pointer
+        int k = 0;           // Temp array pointer
 
-        }else{
-            temp[k] = arr[j];
-            j++ ; k++; 
+        // Compare elements from both halves and copy smaller element
+        while (i <= mid && j <= endIndex) {
+            if (arr[i] <= arr[j]) {
+                temp[k++] = arr[i++];
+            } else {
+                temp[k++] = arr[j++];
+            }
         }
-        while (i <= mid ){
-            temp [k] = arr[i];
-            i ++ ; k ++ ; 
 
+        // Copy remaining elements from left half
+        while (i <= mid) {
+            temp[k++] = arr[i++];
         }
-        while (j <= ei){
-            temp[k++] = arr[j++ ];
 
+        // Copy remaining elements from right half
+        while (j <= endIndex) {
+            temp[k++] = arr[j++];
         }
-        for ( k = 0 , i = si ; k < temp.length ; k++ , i++){
+
+        // Copy temp array back into original array
+        for (k = 0, i = startIndex; k < temp.length; k++, i++) {
             arr[i] = temp[k];
         }
     }
 
+    public static void main(String[] args) {
+        int[] arr = {6, 3, 9, 5, 2, 8};
+        sort(arr, 0, arr.length - 1);
 
-    public static void main (String args[]){
-        int arr [] = {6 , 3 , 9 , 5 , 2 , 8 };
-        mergeSort(arr, 0, 5);
-        for (int i = 0 ; i < arr.length ; i++){
-            System.out.print(arr[i]);
+        System.out.print("Sorted Array (Merge Sort): ");
+        for (int num : arr) {
+            System.out.print(num + " ");
         }
+        System.out.println();
     }
-    
 }

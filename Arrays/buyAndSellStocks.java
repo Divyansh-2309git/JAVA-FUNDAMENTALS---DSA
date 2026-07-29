@@ -1,23 +1,28 @@
-package Arrays;
-
+/**
+ * Program Name : buyAndSellStocks
+ * Topic        : Arrays
+ * Difficulty   : Intermediate
+ * Concepts     : Single-Pass Dynamic Tracking, Greedy Approach
+ * -------------------------------------------------------------
+ * Description  :
+ * Calculates the maximum profit achievable by buying and selling a stock once (LeetCode 121).
+ */
 public class buyAndSellStocks {
-    public static int maxProfit(int stocks[]){
-        int minBuy = stocks[0] ; 
-        int sell = stocks[0];
-        int maxPro = 0 ; 
-        int n = stocks.length;
-        for (int i = 1 ; i  < n ; i ++  ){
-            minBuy = Math.min(minBuy , stocks[i]);
-            sell = stocks[i] ;
-            int currProfit = sell - minBuy ; 
-            maxPro = Math.max(maxPro, currProfit);
 
+    public static int maxProfit(int[] prices) {
+        int minBuyPrice = prices[0];
+        int maxProfit = 0;
+
+        for (int i = 1; i < prices.length; i++) {
+            minBuyPrice = Math.min(minBuyPrice, prices[i]);
+            int currentProfit = prices[i] - minBuyPrice;
+            maxProfit = Math.max(maxProfit, currentProfit);
         }
-        return maxPro;
+        return maxProfit;
     }
+
     public static void main(String[] args) {
-        int stocks[] = {7 , 1 , 6 , 10 , 5 , 7 };
-        System.out.println(maxProfit(stocks));
+        int[] prices = {7, 1, 5, 3, 6, 4};
+        System.out.println("Maximum Profit: " + maxProfit(prices));
     }
-    
 }

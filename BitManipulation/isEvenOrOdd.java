@@ -1,15 +1,29 @@
-
+/**
+ * Program Name : isEvenOrOdd
+ * Topic        : Bit Manipulation
+ * Difficulty   : Beginner
+ * Concepts     : Bitwise AND, Least Significant Bit (LSB)
+ * -------------------------------------------------------------
+ * Description  :
+ * Checks whether a number is even or odd by inspecting its Least Significant Bit (LSB).
+ */
 public class isEvenOrOdd {
-    public static void isEvenOrOdd(int n ){
-        int bitMask = 1 ; 
-        if((n & bitMask) == 1){
-            System.out.println("The number is odd ");
-        }else{
-            System.out.println("The number is even");
+
+    /**
+     * Determines parity using bitwise AND with 1.
+     * Note: Odd numbers always end with LSB = 1 in binary; even numbers end with LSB = 0.
+     */
+    public static void checkEvenOrOdd(int number) {
+        int bitMask = 1;
+        if ((number & bitMask) == 1) {
+            System.out.println(number + " is Odd.");
+        } else {
+            System.out.println(number + " is Even.");
         }
     }
+
     public static void main(String[] args) {
-        int n = 5 ; 
-        isEvenOrOdd(n);
+        int number = 5;
+        checkEvenOrOdd(number);
     }
 }

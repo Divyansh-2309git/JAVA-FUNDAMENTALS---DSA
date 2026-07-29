@@ -1,49 +1,56 @@
+/**
+ * Program Name : inheritance
+ * Topic        : Object-Oriented Programming (OOP)
+ * Difficulty   : Beginner
+ * Concepts     : Single & Multilevel Inheritance, Reusability ('extends')
+ * -------------------------------------------------------------
+ * Description  :
+ * Demonstrates Single-level and Multilevel inheritance hierarchies in Java.
+ */
 public class inheritance {
     public static void main(String[] args) {
-        Fish shark = new Fish() ; 
+        // Single level inheritance example
+        SingleFish shark = new SingleFish();
         shark.eat();
-        Dog doggy = new Dog(); 
-        doggy.legs = 4 ; 
-        doggy.barks = "Yes" ; 
-        
-    }
-}
-class Animal {
-    String color ; 
-    void eat(){
+        shark.swim();
 
-        System.out.println("eats");
-    }
-    void breathe (){
-        System.out.println("Breathes");
+        // Multilevel inheritance example
+        Dog doggy = new Dog();
+        doggy.eat(); // Inherited from Animal
+        doggy.legs = 4; // Inherited from Mammal
+        doggy.bark();
     }
 }
 
-// ! Derived Class 
-// Single level inheritance 
-class Fish extends Animal {
-    int fins ; 
-    void swim(){
-        System.out.println("Swims in water");
+class AnimalBase {
+    String color;
+
+    void eat() {
+        System.out.println("Animal eats food.");
     }
-} 
 
-// ! There are 4 types of inheritance -
-//  Singhle level
-//  Multi-level 
-//  Heirarchial 
-//  Hybrid 
-
-//  Muti-level inheritance 
-
-class Mamal extends Animal{
-    int legs ; 
-
+    void breathe() {
+        System.out.println("Animal breathes.");
+    }
 }
 
-class Dog extends Mamal{
-    String barks ; 
+// Single Level Inheritance
+class SingleFish extends AnimalBase {
+    int fins;
 
+    void swim() {
+        System.out.println("Swims in water.");
+    }
 }
 
+// Multilevel Inheritance Step 1
+class MammalBase extends AnimalBase {
+    int legs;
+}
 
+// Multilevel Inheritance Step 2
+class Dog extends MammalBase {
+    void bark() {
+        System.out.println("Dog barks.");
+    }
+}

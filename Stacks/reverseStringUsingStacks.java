@@ -1,26 +1,32 @@
-import java.util.*; 
+/**
+ * Program Name : reverseStringUsingStacks
+ * Topic        : Stacks
+ * Difficulty   : Beginner
+ * Concepts     : LIFO Property, String Inversion
+ * -------------------------------------------------------------
+ * Description  :
+ * Reverses a string character-by-character using the Last-In-First-Out (LIFO) property of Stack.
+ */
+import java.util.Stack;
 
-public class reverseStringUsingStacks{
-    public static String reverse(String str){ 
-        Stack<Character> s = new Stack<>(); 
-        int idx = 0 ; 
-        while(idx < str.length()){
-            s.push(str.charAt(idx)) ; 
-            idx ++ ; 
-        }
-        StringBuilder result = new StringBuilder(""); 
-        while(!s.isEmpty()){
-            result.append(s.pop()) ; 
+public class reverseStringUsingStacks {
 
+    public static String reverseString(String str) {
+        Stack<Character> stack = new Stack<>();
+        for (int i = 0; i < str.length(); i++) {
+            stack.push(str.charAt(i));
         }
-        String newStr = result.toString(); 
-        return newStr ; 
+
+        StringBuilder reversed = new StringBuilder("");
+        while (!stack.isEmpty()) {
+            reversed.append(stack.pop());
+        }
+        return reversed.toString();
     }
-    public static void main(String[] main){
-        String str = "abc"; 
-        System.out.println(reverse(str)); 
 
-        
-    }       
-
+    public static void main(String[] args) {
+        String input = "helloworld";
+        System.out.println("Original: " + input);
+        System.out.println("Reversed: " + reverseString(input));
+    }
 }

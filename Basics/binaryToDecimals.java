@@ -1,35 +1,55 @@
-import java.util.*;
+/**
+ * Program Name : binaryToDecimals
+ * Topic        : Basics
+ * Difficulty   : Beginner
+ * Concepts     : Number Base Conversion, Math Functions, While Loops
+ * -------------------------------------------------------------
+ * Description  :
+ * Provides utility methods to convert binary numbers to decimal
+ * and decimal numbers to binary.
+ */
+import java.util.Scanner;
 
 public class binaryToDecimals {
-    public static int toDec(int a ){
-        int sum = 0 ;
-        int i = 0; 
-        while (a > 0){
-            sum += (a % 10) * Math.pow(2, i) ;
-            a /= 10 ; 
-            i ++ ; 
-        }
-        return sum ;
 
+    /**
+     * Converts a binary number (e.g., 1010) to its decimal equivalent (10).
+     */
+    public static int toDec(int binaryNum) {
+        int decimalSum = 0;
+        int power = 0;
+        
+        while (binaryNum > 0) {
+            int lastDigit = binaryNum % 10;
+            decimalSum += lastDigit * Math.pow(2, power);
+            binaryNum /= 10;
+            power++;
+        }
+        return decimalSum;
     }
 
-    // TO CONVERT THE GIVEN DECIMAL NUMBER TO BINARY NUMBER 
-    public static int tobin(int a ){
-        int sum = 0 ;
-        int pow = 0 ;
-        while (a > 0){
-            sum += (a % 2 ) * Math.pow(10 , pow) ;
-            a = a / 2 ; 
-            pow ++ ;
+    /**
+     * Converts a decimal number (e.g., 10) to its binary representation (1010).
+     */
+    public static int toBin(int decimalNum) {
+        int binaryNum = 0;
+        int power = 0;
+        
+        while (decimalNum > 0) {
+            int remainder = decimalNum % 2;
+            binaryNum += remainder * Math.pow(10, power);
+            decimalNum /= 2;
+            power++;
         }
-        return sum ; 
+        return binaryNum;
     }
 
-
-
-    public static void main(String args[]){
-        Scanner sc = new Scanner(System.in);
-        int a = sc.nextInt();
-        System.out.println(tobin(a));
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a decimal number to convert to binary: ");
+        int num = scanner.nextInt();
+        
+        System.out.println("Binary representation: " + toBin(num));
+        scanner.close();
     }
 }

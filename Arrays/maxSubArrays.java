@@ -1,31 +1,33 @@
-package Arrays;
-
+/**
+ * Program Name : maxSubArrays
+ * Topic        : Arrays
+ * Difficulty   : Beginner
+ * Concepts     : Brute Force, Subarray Sum Calculation
+ * -------------------------------------------------------------
+ * Description  :
+ * Calculates maximum subarray sum using 3 nested loops (Brute Force O(N^3)).
+ */
 public class maxSubArrays {
-    public static void sumArrays(int nums[]){
+
+    public static void printMaxSubarraySumBruteForce(int[] nums) {
         int maxSum = Integer.MIN_VALUE;
-        int curr = 0 ;
 
-        for (int i = 0 ; i < nums.length ; i  ++ ){
-            for (int j = i ; j < nums.length ; j ++ ){
-                curr = 0 ; 
-                for ( int k = i ; k <= j ; k ++ ){
-                    curr += nums[k];
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i; j < nums.length; j++) {
+                int currentSum = 0;
+                for (int k = i; k <= j; k++) {
+                    currentSum += nums[k];
                 }
-                System.out.println(curr);
+                if (currentSum > maxSum) {
+                    maxSum = currentSum;
+                }
             }
-            if(curr> maxSum){
-                maxSum = curr; 
-            }
-            System.out.println();
         }
-        System.out.println("The maximum sum of the sub array is : " + maxSum);
-
+        System.out.println("Maximum Subarray Sum (Brute Force): " + maxSum);
     }
 
-    public static void main(String args[]){
-        int numbers[] = {
-            2 , 4 , 6 , 8 , 10 
-        };
-        sumArrays(numbers);
+    public static void main(String[] args) {
+        int[] nums = {1, -2, 6, -1, 3};
+        printMaxSubarraySumBruteForce(nums);
     }
 }

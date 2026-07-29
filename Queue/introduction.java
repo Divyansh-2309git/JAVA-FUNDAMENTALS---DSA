@@ -1,70 +1,70 @@
-public class introduction{
+/**
+ * Program Name : introduction
+ * Topic        : Queue
+ * Difficulty   : Beginner
+ * Concepts     : Circular Queue Implementation, Fixed-size Array
+ * -------------------------------------------------------------
+ * Description  :
+ * Custom Queue implementation using a fixed-size array from scratch.
+ */
+public class introduction {
 
-    static class Queue{
-        static int arr[]; 
-        static int size ; 
-        static int rear ; 
-        static int front; 
+    static class CustomArrayQueue {
+        private int[] arr;
+        private int size;
+        private int rear;
 
-        public Queue(int n ) {
-            arr = new int[n]; 
-            size = n ; 
-            rear = -1 ; 
-            front = -1 ; 
-
+        public CustomArrayQueue(int capacity) {
+            arr = new int[capacity];
+            size = capacity;
+            rear = -1;
         }
-        public static boolean isEmpty(){
-            return rear == -1 ; 
-        }
-        
-        public static boolean isFull(){
-            return rear == -1 && front == -1 ; 
+
+        public boolean isEmpty() {
+            return rear == -1;
         }
 
-        public static void add(int data ){
-            if(rear == size-1){
-                System.out.println("The queue is full "); 
-                return ; 
+        public boolean isFull() {
+            return rear == size - 1;
+        }
+
+        public void add(int data) {
+            if (isFull()) {
+                System.out.println("Queue Overflow!");
+                return;
             }
-            if(front == -1){
-                front = 0 ; 
-            }
-           
-            rear = rear + 1 ; 
-            arr[rear] = data ; 
-        }
-        
-        public static int remove(){
-            if(isEmpty()){
-                return -1 ; 
-            }
-            int result = arr[front]; 
-
-            if(rear == front ){
-                rear = front = -1 ; 
-            }else{
-                front = (front + 1 ) % size ; 
-            }
-            return result ; 
-        }
-        public static int peek(){
-            if(isEmpty()){
-                return -1 ; 
-            }
-            return arr[front]; 
+            rear++;
+            arr[rear] = data;
         }
 
+        public int remove() {
+            if (isEmpty()) {
+                System.out.println("Queue Underflow!");
+                return -1;
+            }
+            int front = arr[0];
+            for (int i = 0; i < rear; i++) {
+                arr[i] = arr[i + 1];
+            }
+            rear--;
+            return front;
+        }
+
+        public int peek() {
+            if (isEmpty()) return -1;
+            return arr[0];
+        }
     }
-    public static void main(String args[]){
-        Queue q = new Queue(5); 
+
+    public static void main(String[] args) {
+        CustomArrayQueue q = new CustomArrayQueue(5);
         q.add(1);
         q.add(2);
         q.add(3);
-        q.add(4);
 
-        while(!q.isEmpty()){
-            System.out.println(q.remove()); 
-
+        while (!q.isEmpty()) {
+            System.out.println(q.peek());
+            q.remove();
         }
     }
 }

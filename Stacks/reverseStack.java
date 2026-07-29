@@ -1,39 +1,48 @@
-
+/**
+ * Program Name : reverseStack
+ * Topic        : Stacks
+ * Difficulty   : Intermediate
+ * Concepts     : Stack Reversal, Recursion, Memory Stack Unwinding
+ * -------------------------------------------------------------
+ * Description  :
+ * Reverses a stack in-place using recursion without allocating extra data structures.
+ */
 import java.util.Stack;
 
+public class reverseStack {
 
-public class reverseStack{
-    public static void reverse(Stack<Integer> s ){
-        if(s.isEmpty()){
-            return ; 
+    public static void pushAtBottom(Stack<Integer> stack, int data) {
+        if (stack.isEmpty()) {
+            stack.push(data);
+            return;
         }
-        int top = s.pop(); 
-        reverse(s);
-        pushAtBottom(s, top); 
+        int top = stack.pop();
+        pushAtBottom(stack, data);
+        stack.push(top);
     }
-    public static void pushAtBottom(Stack<Integer> s , int data ){
-        if(s.isEmpty()){
-            s.push(data); 
-            return ; 
+
+    public static void reverse(Stack<Integer> stack) {
+        if (stack.isEmpty()) {
+            return;
         }
-        int ans = s.pop(); 
-        pushAtBottom(s, data);
-        s.push(ans) ; 
+        int top = stack.pop();
+        reverse(stack);
+        pushAtBottom(stack, top);
     }
+
     public static void main(String[] args) {
-        Stack<Integer> s = new Stack<>(); 
-        s.push(1);
-        s.push(2);
-        s.push(3);
-        s.push(4);
+        Stack<Integer> stack = new Stack<>();
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
 
-        reverse(s);
+        System.out.println("Original Stack: [1, 2, 3]");
+        reverse(stack);
 
-        while(!s.isEmpty()){
-            System.out.println(s.peek()); 
-            s.pop(); 
+        System.out.print("Reversed Stack elements (Top to Bottom): ");
+        while (!stack.isEmpty()) {
+            System.out.print(stack.pop() + " ");
         }
-
-
+        System.out.println();
     }
 }

@@ -1,19 +1,24 @@
-
+/**
+ * Program Name : stacksUsingJavaFrameworks
+ * Topic        : Stacks
+ * Difficulty   : Beginner
+ * Concepts     : Java Collections Framework (JCF), java.util.Stack API
+ * -------------------------------------------------------------
+ * Description  :
+ * Demonstrates using Java's built-in java.util.Stack standard library API.
+ */
 import java.util.Stack;
 
-public class stacksUsingJavaFrameworks{
+public class stacksUsingJavaFrameworks {
     public static void main(String[] args) {
-        
-        Stack<Integer> s = new Stack<>(); 
-        s.push(1) ; 
-        s.push(2) ; 
-        s.push(3) ;
+        Stack<Integer> stack = new Stack<>();
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
 
-        while(!s.isEmpty()){{
-            System.out.println(s.peek()); 
-            s.pop(); 
-        }}
-
+        while (!stack.isEmpty()) {
+            System.out.println(stack.peek());
+            stack.pop();
+        }
     }
-
 }

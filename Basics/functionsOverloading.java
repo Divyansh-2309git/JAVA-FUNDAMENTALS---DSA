@@ -1,44 +1,33 @@
-// public class functionsOverloading {
-//     public static int sum(int a , int b ){
-//         int s = a + b ; 
-//         return s ; 
-//     }
-//     public static int sum(int a , int b , int c ){
-//         int s = a + b + c ;
-//         return s ;
-//     }
-//     public static void main (String args[]){
-//         int a = 5 ; 
-//         int b = 3 ; 
-//         System.out.println(sum(a, b));
-
-//     }    
-// }
-
-
-
-//  functions overloading with different data types 
+/**
+ * Program Name : functionsOverloading
+ * Topic        : Basics
+ * Difficulty   : Beginner
+ * Concepts     : Method Overloading (Compile-time Polymorphism)
+ * -------------------------------------------------------------
+ * Description  :
+ * Demonstrates method overloading in Java by defining methods with the same name
+ * but different parameter data types (int vs. float).
+ */
 public class functionsOverloading {
     
-    public static int sum(int a, int b ){
-        int s = a + b ; 
-        return s ; 
-    }    
-    public static float sum(float a , float b){
-        float s = a + b ; 
-        return s ;
+    // Sum for integer parameters
+    public static int sum(int a, int b) {
+        return a + b;
     }
-    
-    public static void main (String args[]){
-        float a = 10.4f;
-        float b = 20.23f ;
-        int x = 5  ;
-        int d = 23;
 
-        System.out.println(sum(a, b));
-        System.out.println(sum(x, d));
-    };
+    // Sum for float parameters
+    public static float sum(float a, float b) {
+        return a + b;
+    }
+
+    public static void main(String[] args) {
+        float floatA = 10.4f;
+        float floatB = 20.23f;
+        int intA = 5;
+        int intB = 23;
+
+        // Compiler automatically selects the appropriate method signature
+        System.out.println("Float sum: " + sum(floatA, floatB));
+        System.out.println("Integer sum: " + sum(intA, intB));
+    }
 }
-
-
-

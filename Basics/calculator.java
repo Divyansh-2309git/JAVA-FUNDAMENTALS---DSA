@@ -1,32 +1,49 @@
-import java.util.*;
+/**
+ * Program Name : calculator
+ * Topic        : Basics
+ * Difficulty   : Beginner
+ * Concepts     : Switch-Case Statement, User Input, Arithmetic Operators
+ * -------------------------------------------------------------
+ * Description  :
+ * Implements a simple interactive calculator supporting addition, subtraction,
+ * multiplication, and division using a switch-case control structure.
+ */
+import java.util.Scanner;
 
 public class calculator {
-    public static void main(String args[]) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the value of A: ");
-        float a = sc.nextFloat();
-        System.out.println("Enter the value of B: ");
-        float b = sc.nextFloat();
-        System.out.println("Enter a Valid operation you want to perform");
-        char operator = sc.next().charAt(0);
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Enter the value of A: ");
+        float num1 = scanner.nextFloat();
+        
+        System.out.print("Enter the value of B: ");
+        float num2 = scanner.nextFloat();
+        
+        System.out.print("Enter valid operation (+, -, *, /): ");
+        char operator = scanner.next().charAt(0);
 
         switch (operator) {
             case '+':
-                System.out.println(a + b);
+                System.out.println("Result: " + (num1 + num2));
                 break;
             case '-':
-                System.out.println(a - b);
+                System.out.println("Result: " + (num1 - num2));
                 break;
             case '*':
-                System.out.println(a * b);
+                System.out.println("Result: " + (num1 * num2));
                 break;
             case '/':
-                System.out.println(a / b);
+                if (num2 != 0) {
+                    System.out.println("Result: " + (num1 / num2));
+                } else {
+                    System.out.println("Error: Division by zero is undefined.");
+                }
                 break;
             default:
-                System.out.println("Please choose a valid operation to perform.");
-
+                System.out.println("Please choose a valid operator (+, -, *, /).");
         }
+        
+        scanner.close();
     }
-
 }

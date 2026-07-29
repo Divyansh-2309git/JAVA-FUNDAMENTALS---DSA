@@ -1,22 +1,40 @@
+/**
+ * Program Name : comparing
+ * Topic        : Strings
+ * Difficulty   : Intermediate
+ * Concepts     : String Compression, Run-Length Encoding, StringBuilder
+ * -------------------------------------------------------------
+ * Description  :
+ * Performs run-length string compression (e.g. "aaabbbbccd" -> "a3b4c2d").
+ */
 public class comparing {
-    public static String compress(String str ){
-        StringBuilder newStr= new StringBuilder("");
-        for(int i = 0 ; i < str.length() ; i ++ ){
-            Integer count  = 1 ; 
-            while ( i < str.length() - 1 && str.charAt(i) == str.charAt( i + 1 ) ){
-                count ++ ; 
-                i ++ ; 
+
+    /**
+     * Compresses consecutive identical characters in a String.
+     */
+    public static String compress(String str) {
+        StringBuilder compressedStr = new StringBuilder("");
+        
+        for (int i = 0; i < str.length(); i++) {
+            Integer count = 1;
+            
+            // Count consecutive occurrences of current character
+            while (i < str.length() - 1 && str.charAt(i) == str.charAt(i + 1)) {
+                count++;
+                i++;
             }
-            newStr.append(str.charAt(i)); 
-            if(count > 1){
-                newStr.append(count.toString());
+            
+            compressedStr.append(str.charAt(i));
+            if (count > 1) {
+                compressedStr.append(count.toString());
             }
         }
-        return newStr.toString() ; 
-
+        return compressedStr.toString();
     }
+
     public static void main(String[] args) {
-        String str = "aaabbbbccd";
-        System.out.println(compress(str));
-    }    
+        String input = "aaabbbbccd";
+        System.out.println("Original String: " + input);
+        System.out.println("Compressed String: " + compress(input));
+    }
 }

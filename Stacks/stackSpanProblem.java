@@ -1,35 +1,46 @@
-
+/**
+ * Program Name : stackSpanProblem
+ * Topic        : Stacks
+ * Difficulty   : Intermediate
+ * Concepts     : Stock Span Problem, Monotonic Stack Indexing
+ * -------------------------------------------------------------
+ * Description  :
+ * Calculates the Stock Span for each day (number of consecutive previous days with price <= current day).
+ */
 import java.util.Stack;
 
-public class stackSpanProblem{
-    public static void stockSpan(int[] stocks , int[] span){
-        Stack<Integer> s = new Stack<>(); 
-        span[0] = 1 ; 
-        s.push(0) ; 
+public class stackSpanProblem {
 
-        for (int i = 1 ; i <stocks.length ; i ++ ){
-            int currentPrice = stocks[i] ; 
-            while(!s.isEmpty() && currentPrice > stocks[s.peek()]){
-                s.pop(); 
+    public static void calculateStockSpan(int[] stocks, int[] span) {
+        Stack<Integer> stack = new Stack<>();
+        span[0] = 1;
+        stack.push(0);
+
+        for (int i = 1; i < stocks.length; i++) {
+            int currentPrice = stocks[i];
+            while (!stack.isEmpty() && currentPrice > stocks[stack.peek()]) {
+                stack.pop();
             }
-            if(s.isEmpty()){
-                span[i] = i +1 ; 
-            }else{
-                int prevHigh = s.peek(); 
-                span[i] = i - prevHigh ; 
+            if (stack.isEmpty()) {
+                span[i] = i + 1;
+            } else {
+                int prevHigh = stack.peek();
+                span[i] = i - prevHigh;
             }
-            s.push(i); 
-            
+            stack.push(i);
         }
     }
+
     public static void main(String[] args) {
-        int[] stock = {100 , 80 , 60 , 70 ,60 , 85 , 100 } ; 
-        int[] span = new int[stock.length]; 
-        stockSpan(stock , span ); 
-        
-        for(int i = 0 ; i < stock.length ; i ++ ) {
-            System.out.println(span[i]) ; 
-        }
-    }
+        int[] stocks = {100, 80, 60, 70, 60, 85, 100};
+        int[] span = new int[stocks.length];
 
+        calculateStockSpan(stocks, span);
+
+        System.out.print("Stock Spans: ");
+        for (int val : span) {
+            System.out.print(val + " ");
+        }
+        System.out.println();
+    }
 }

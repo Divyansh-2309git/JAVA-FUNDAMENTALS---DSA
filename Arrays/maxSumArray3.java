@@ -1,23 +1,30 @@
-package Arrays;
-
+/**
+ * Program Name : maxSumArray3
+ * Topic        : Arrays
+ * Difficulty   : Intermediate
+ * Concepts     : Kadane's Algorithm (Dynamic Programming)
+ * -------------------------------------------------------------
+ * Description  :
+ * Finds maximum subarray sum using Kadane's Algorithm in optimal O(N) time and O(1) space.
+ */
 public class maxSumArray3 {
-    public static int SumArray(int numbers[]){
-        int maxSum =  Integer.MIN_VALUE;
-        int currSum = 0 ; 
-        for (int i = 0 ; i < numbers.length ; i ++){
-            currSum = currSum + numbers[i]; 
-            System.out.println(currSum); 
-            if (currSum < 0 ){
-                currSum = 0 ;
+
+    public static int kadanesMaxSubarraySum(int[] numbers) {
+        int maxSum = Integer.MIN_VALUE;
+        int currentSum = 0;
+
+        for (int i = 0; i < numbers.length; i++) {
+            currentSum += numbers[i];
+            if (currentSum < 0) {
+                currentSum = 0; // Reset current sum if negative
             }
-            maxSum = Math.max(maxSum, currSum);
+            maxSum = Math.max(maxSum, currentSum);
         }
         return maxSum;
     }
-    public static void main(String args[]){
-        int numbers[] = {-2 , -3 , 4 , -1 , -2 , 1 , 5 , -3 };
-        // System.out.println( SumArray(numbers));
-       
+
+    public static void main(String[] args) {
+        int[] numbers = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+        System.out.println("Maximum Subarray Sum (Kadane's Algorithm): " + kadanesMaxSubarraySum(numbers));
     }
-    
 }
