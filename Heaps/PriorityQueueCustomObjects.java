@@ -37,7 +37,7 @@ public class PriorityQueueCustomObjects {
 
         System.out.println("Students prioritized in reverse rank order:");
         while (!pq.isEmpty()) {
-            Student s = pq.remove();
+            Student s = pq.remove(); //O(log N)
             System.out.println("Student: " + s.name + ", Rank: " + s.rank);
         }
     }

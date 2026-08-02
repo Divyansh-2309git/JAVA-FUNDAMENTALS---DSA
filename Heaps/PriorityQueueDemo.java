@@ -24,7 +24,7 @@ public class PriorityQueueDemo {
 
         System.out.print("Priority Queue elements in descending order (Max-Heap): ");
         while (!pq.isEmpty()) {
-            System.out.print(pq.peek() + " ");
+            System.out.print(pq.peek() + " ");// O(1)
             pq.remove(); // O(log N)
         }
         System.out.println();

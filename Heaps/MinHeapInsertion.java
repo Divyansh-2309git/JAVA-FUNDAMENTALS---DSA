@@ -22,7 +22,7 @@ public class MinHeapInsertion {
             int childIndex = arr.size() - 1;
             int parentIndex = (childIndex - 1) / 2;
 
-            // Up-heapify (swap with parent while child < parent)
+            // Up-heapify (swap with parent while child < parent) O(log N)
             while (childIndex > 0 && arr.get(childIndex) < arr.get(parentIndex)) {
                 // Swap
                 int temp = arr.get(childIndex);

@@ -13,9 +13,10 @@ A Heap is a complete binary tree satisfying the heap property (Min-Heap: parent 
 
 | Program | Description |
 | :--- | :--- |
-| [MinHeapInsertion.java](MinHeapInsertion.java) | Custom Min-Heap class implementing  with up-heapify. |
-| [PriorityQueueCustomObjects.java](PriorityQueueCustomObjects.java) |  storing custom Student objects implementing . |
-| [PriorityQueueDemo.java](PriorityQueueDemo.java) | Built-in  with  for Max-Heap behavior. |
+| [HeapPeek.java](HeapPeek.java) | Custom Heap peek operation retrieving root element in O(1). |
+| [MinHeapInsertion.java](MinHeapInsertion.java) | Custom Min-Heap class implementing `add` with up-heapify. |
+| [PriorityQueueCustomObjects.java](PriorityQueueCustomObjects.java) | `PriorityQueue` storing custom Student objects implementing `Comparable`. |
+| [PriorityQueueDemo.java](PriorityQueueDemo.java) | Built-in `PriorityQueue` with `Comparator.reverseOrder()` for Max-Heap behavior. |
 
 ## Key Java Concepts
 - **Comparable vs Comparator**:  defines natural ordering ();  defines custom external ordering.
