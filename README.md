@@ -24,10 +24,10 @@ This repository serves as a practical, self-contained learning hub for mastering
 
 | Metric | Quantity |
 | :--- | :--- |
-| **Total Topic Modules** | 18 Specialized Folders |
-| **Total Java Programs** | 142 Fully Documented Files |
-| **Total Lines of Java Code** | ~6,000 Lines |
-| **Topic README Guides** | 20 Dedicated Guides |
+| **Total Topic Modules** | 19 Specialized Folders |
+| **Total Java Programs** | 157 Fully Documented Files |
+| **Total Lines of Java Code** | ~6,500 Lines |
+| **Topic README Guides** | 21 Dedicated Guides |
 | **License** | MIT Open Source |
 
 ---
@@ -54,7 +54,7 @@ Java-Fundamentals-DSA/
 ├── BinaryTree/             # Tree Creation, Height, Metrics, Traversal
 ├── BinarySearchTree/       # BST Creation, Search, Deletion, Range Queries, Largest BST
 ├── Heaps/                  # Priority Queue, Custom Object Priority Queue, Heap Insertion
-├── Leetcode/               # 20 Curated LeetCode problem solutions with detailed header docs
+├── Hashing/                # HashMap, HashSet, LinkedHashMap, TreeMap, Custom HashMap, Anagram, Subarray Sums
 ├── Practice/               # Additional practice problems organized by topic
 ├── CONTRIBUTING.md         # Contribution guidelines and coding standards
 ├── LICENSE                 # MIT License
@@ -78,7 +78,8 @@ Java-Fundamentals-DSA/
 | **Divide & Conquer** | [DivideAndRule/](DivideAndRule/) | Merge Sort algorithm breakdown |
 | **Linear Data Structures** | [LinkedList/](LinkedList/), [Stacks/](Stacks/), [Queue/](Queue/) | Singly Linked Lists, Stacks, Queues, Deque, Monotonic Stacks, Interleaving |
 | **Hierarchical Data Structures**| [BinaryTree/](BinaryTree/), [BinarySearchTree/](BinarySearchTree/), [Heaps/](Heaps/) | Binary Trees, BSTs, Inorder Successor, Priority Queue, Min/Max Heaps |
-| **LeetCode Practice** | [Leetcode/](Leetcode/) | 20 classic LeetCode solutions across Array, Linked List, Stack, Matrix |
+| **Hashing Data Structures** | [Hashing/](Hashing/) | HashMap, HashSet, LinkedHashMap, TreeMap, Custom HashMap Implementation, Anagrams |
+| **LeetCode Practice** | [Leetcode/](Leetcode/) | Classic LeetCode solutions across Array, Linked List, Stack, Matrix |
 
 ---
 
@@ -93,15 +94,11 @@ You can compile and run any Java program natively using the Java CLI (`javac` an
 git clone https://github.com/Divyansh-2309git/My-Data-Java_DSA.git
 cd My-Data-Java_DSA
 
-# 2. Compile a specific program (e.g. Arrays/BinarySearch.java)
-javac Arrays/BinarySearch.java
+# 2. Compile a specific program (e.g. Arrays/BinarySearch.java or Hashing/ValidAnagram.java)
+javac Hashing/ValidAnagram.java
 
 # 3. Run the compiled program
-java Arrays.BinarySearch
-
-# 4. Compile and run a LeetCode problem solution
-javac Leetcode/Solution01.java
-java Leetcode.Solution01
+java Hashing.ValidAnagram
 ```
 
 *Note: You can easily clean generated `.class` files using `find . -name "*.class" -delete`.*
@@ -124,7 +121,8 @@ graph TD
     J --> K["11. Stacks & Queues"]
     K --> L["12. Binary Trees & BST"]
     L --> M["13. Heaps & Priority Queues"]
-    M --> N["14. LeetCode Practice & Interview Prep"]
+    M --> N["14. Hashing (HashMap & HashSet)"]
+    N --> O["15. Interview Prep"]
 ```
 
 ---
@@ -142,7 +140,7 @@ Contributions are always welcome! Please check out [CONTRIBUTING.md](CONTRIBUTIN
 
 ## 🔮 Future Roadmap
 
-- [ ] **Hashing** (HashMap, HashSet, Custom Hash Functions, Collision Resolution)
+- [x] **Hashing** (HashMap, HashSet, Custom Hash Functions, Collision Resolution)
 - [ ] **Trie Data Structure** (Prefix Tree, Word Search)
 - [ ] **Graph Algorithms** (Adjacency Matrix/List, BFS, DFS, Topological Sort, Dijkstra)
 - [ ] **Dynamic Programming** (1D DP, 2D DP, 0/1 Knapsack, LCS)
